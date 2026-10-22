@@ -865,6 +865,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .shot{width:100%;object-fit:cover;border-radius:2px;box-shadow:0 24px 70px rgba(32,52,56,.22)}
 
   /* Stat callouts */
+  .footnote{font-size:12px;line-height:1.6;color:var(--text);opacity:.85;margin-top:16px}
   .stat-callout-row{display:grid;grid-template-columns:1fr;gap:16px;margin:36px 0 0}
   .stat-callout{background:var(--white);border-left:4px solid var(--accent);padding:28px 30px;
        box-shadow:0 18px 50px rgba(32,52,56,.12);display:flex;align-items:center;gap:28px;flex-wrap:wrap}
@@ -1090,7 +1091,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
       </div>
       <div class="two-col" style="margin-top:48px">
         <div id="overview-copy-col">
-          <p class="lead">Hodges Ward Elliott (“HWE”) is pleased to present the opportunity to acquire the 99-room Home2 Suites by Hilton Naples I-75 Pine Ridge Road (“Property” or “Hotel”). Built in 2020, the Property is an all-suite, premium extended-stay hotel, boasting a strategic position off of I-75 on Pine Ridge Road, one of Naples’ primary east-west corridors. The Hotel also benefits from its proximity to Downtown Naples (7.9 miles), Naples Airport (5.9 miles), Southwest Florida International Airport (24.7 miles), the Gulf shoreline (6.2 miles), a variety of major medical and corporate employers, and several renowned golf courses.</p>
+          <p class="lead">Hodges Ward Elliott (“HWE”) is pleased to present the opportunity to acquire the 99-room Home2 Suites by Hilton Naples I-75 Pine Ridge Road (“Property” or “Hotel”). Built in 2020, the Property is an all-suite, premium extended-stay hotel, boasting a strategic position off of I-75 on Pine Ridge Road, one of Naples’ primary east-west corridors. The Hotel also benefits from its proximity to Downtown Naples (~20 minutes), Naples Airport (~15 minutes), Southwest Florida International Airport (~30 minutes), the Gulf shoreline (~18 minutes), a variety of major medical and corporate employers, and several renowned golf courses.</p>
           <div style="margin-top:36px;display:flex;gap:16px;flex-wrap:wrap">
             <!-- TODO: replace both CA hrefs with the RightSignature link + CA document for this deal -->
             <a href="#contact" class="btn btn-cta">Sign CA Online</a>
@@ -1101,19 +1102,18 @@ svg.leaflet-image-layer.leaflet-interactive path {
         </div>
         <div class="stats-card" id="overview-stats-card">
           <div class="stats-grid">
-            <div class="stat-cell full"><div class="stat-value">3685 Kramer Dr</div><div class="stat-label">Address</div></div>
+            <div class="stat-cell full"><div class="stat-value">3685 Kramer Dr, Naples, FL 34109</div><div class="stat-label">Address</div></div>
             <div class="stat-cell"><div class="stat-value">2020</div><div class="stat-label">Year Opened</div></div>
             <div class="stat-cell"><div class="stat-value">99</div><div class="stat-label">Keys</div></div>
             <div class="stat-cell"><div class="stat-value">Three</div><div class="stat-label">Stories</div></div>
-            <div class="stat-cell"><div class="stat-value">57,012 SF</div><div class="stat-label">Gross Building Area</div></div>
-            <div class="stat-cell"><div class="stat-value">2.87 AC</div><div class="stat-label">Land Area</div></div>
-            <div class="stat-cell"><div class="stat-value" style="font-size:17px">111 Spaces<br>Self Parking &ndash; Complimentary</div><div class="stat-label">Parking</div></div>
-            <div class="stat-cell full"><div class="stat-value" style="font-size:17px">Fitness Center, Business Center, Guest Laundry, Outdoor Pool</div><div class="stat-label">Amenities</div></div>
+            <div class="stat-cell"><div class="stat-value">2.87</div><div class="stat-label">Land Acres</div></div>
+            <div class="stat-cell full"><div class="stat-value" style="font-size:17px">Fitness Center, Business Center, Guest Laundry, Outdoor Pool, Home2 Market, Outdoor Patio/Grills</div><div class="stat-label">Amenities</div></div>
+            <div class="stat-cell"><div class="stat-value" style="font-size:17px">Self Parking &ndash; Complimentary</div><div class="stat-label">Parking</div></div>
             <div class="stat-cell"><div class="stat-value">Fee Simple</div><div class="stat-label">Interest Conveyed</div></div>
             <div class="stat-cell"><div class="stat-value">Hilton Worldwide</div><div class="stat-label">Affiliation</div></div>
-            <div class="stat-cell full"><div class="stat-value">Good Hospitality Services (Unencumbered)</div><div class="stat-label">Management</div></div>
             <div class="stat-cell"><div class="stat-value">Non-Union</div><div class="stat-label">Labor</div></div>
-            <div class="stat-cell"><div class="stat-value" style="font-size:18px">Concrete Masonry Unit</div><div class="stat-label">Construction Type</div></div>
+            <div class="stat-cell full"><div class="stat-value">Good Hospitality Services (Unencumbered)</div><div class="stat-label">Management</div></div>
+            <div class="stat-cell full"><div class="stat-value">Concrete Masonry Unit</div><div class="stat-label">Construction Type</div></div>
           </div>
         </div>
       </div>
@@ -1167,7 +1167,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <div class="two-col">
         <div>
         <h2 class="h2">Recent Vintage Extended-Stay Product with Superior Structural Quality</h2>
-        <p class="lead" style="max-width:68ch;margin-top:28px">Opened in 2020, the Property offers a contemporary Home2 Suites product with an all-suite format and in-room kitchens, plus complimentary surface parking. The Hotel’s amenities include an outdoor pool, fitness center, and business center. The Hotel also features reinforced concrete masonry unit (CMU) construction, which distinguishes it from the wood-framed construction typically used to construct Home2 Suites hotels.</p>
+        <p class="lead" style="max-width:68ch;margin-top:28px">Opened in 2020, the Property is Naples’ newest extended-stay hotel, offering a contemporary all-suite product with limited near-term capital requirements, in-room kitchens, and complimentary surface parking. Amenities include an outdoor pool, fitness center, business center, and Home2 Market. Reinforced concrete masonry unit (CMU) construction distinguishes the Property from the wood-framed construction typically used for Home2 Suites hotels. The combination of institutional construction quality and an all-suite format with kitchens provides physical durability and additional exit optionality over the long term.</p>
         </div>
         <div class="side-photos x-tall">
           <div class="side-photo">
@@ -1193,11 +1193,13 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <div class="two-col" style="align-items:stretch">
         <div style="display:flex;flex-direction:column">
           <h2 class="h2">Flourishing Leisure Destination</h2>
-          <p class="lead" style="max-width:68ch;margin-top:28px">Following a normalization period after the pandemic and hurricane-related disruption, Naples is regaining momentum and shifting from a quiet retirement community into a high-end luxury destination. Domestic visitors are drawn to Naples for its pristine beaches, upscale dining and shopping, and renowned golf courses. Through August 2026, trailing 12-month RevPAR increased 9.5% year on year, driven primarily by higher room rates, reflecting Naples’ evolving pricing strength.</p>
+          <p class="lead" style="max-width:68ch;margin-top:28px">Following a normalization period after the pandemic, Naples is rapidly evolving into a premier luxury destination, supported by pristine beaches, upscale dining and shopping, and renowned golf courses. Reflecting its increasingly upscale positioning, Naples’ trailing 12-month ADR reached $354.51 through September 2026, an increase of 51.3% since 2019. This pricing strength helped Naples achieve the highest trailing 12-month RevPAR in mainland Florida at $230.08.</p>
+          <p class="lead" style="max-width:68ch;margin-top:20px">Continued investment includes The Avenue, a mixed-use development bringing 50 luxury residences and new retail, dining, and wellness offerings to downtown, and The Ritz-Carlton Residences, Naples, a collection of 128 luxury residences near Vanderbilt Beach. NCH’s $295 million heart and stroke center, currently under construction, will expand the region’s healthcare infrastructure and support additional medical-related lodging demand. Momentum remains strong, with trailing 12-month ADR increasing 9.7% year on year, driving 11.4% RevPAR growth and reinforcing Naples’ ability to command premium room rates.</p>
+          <p class="footnote"><i>All market trailing 12-month and year-to-date figures are through September 2026.</i></p>
           <div class="stat-callout-row">
             <div class="stat-callout">
-              <div class="stat-callout-num">9.5%</div>
-              <div class="stat-callout-text">Naples Market RevPAR Up 9.5% YOY<span>T12 August 2026</span></div>
+              <div class="stat-callout-num">11.4%</div>
+              <div class="stat-callout-text">Naples Market RevPAR Growth Year on Year<span>T12 September 2026</span></div>
             </div>
           </div>
         </div>
@@ -1227,15 +1229,15 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <div class="location-split">
         <h2 class="h2 location-title">Strategic Position Near Alligator Alley and Naples’ Primary Employers</h2>
         <div class="location-info">
-          <p class="lead">Located immediately off I-75, the Hotel is strategically positioned near the western gateway to Alligator Alley. This 80-mile stretch of I-75 cuts straight across the Florida Everglades, connecting Naples on the west coast to Fort Lauderdale on the east coast. Commercial exits are extremely limited along Alligator Alley and development of any kind is heavily constrained by the protected Everglades ecosystem. As a result, travelers have virtually no lodging options when crossing the corridor and must stay in established markets at either end.</p>
-          <p class="lead" style="margin-top:20px">Beyond its transient drive-to appeal and renowned white-sand beaches, Naples also benefits from major corporate and healthcare employers such as Arthrex and Naples Comprehensive Health, tournament activity at Paradise Coast Sports Complex, and private aviation through Naples Airport, supporting weekday, extended-stay, and leisure demand.</p>
+          <p class="lead">Located immediately off I-75, the Hotel is strategically positioned near the western gateway to Alligator Alley. This ~80-mile stretch of I-75 cuts straight across the Florida Everglades, connecting Naples on the west coast to Fort Lauderdale on the east coast. Commercial exits are extremely limited along Alligator Alley and development of any kind is heavily constrained by the protected Everglades ecosystem. As a result, travelers have virtually no lodging options when crossing the corridor and must stay in established markets at either end.</p>
+          <p class="lead" style="margin-top:20px">Beyond its transient drive-to appeal and renowned white-sand beaches, Naples also benefits from major corporate and healthcare employers such as Arthrex and Naples Comprehensive Health, youth-sports tournament activity at Paradise Coast Sports Complex, and private aviation through Naples Airport, supporting weekday, extended-stay, and leisure demand.</p>
           <ul class="callout-list" id="location-callouts">
-            <li data-index="0"><span class="dot"></span> Alligator Alley Western Entrance (7.8 miles)</li>
-            <li data-index="1"><span class="dot"></span> Naples Airport (5.9 miles)</li>
-            <li data-index="2"><span class="dot"></span> The Gulf shoreline (6.2 miles)</li>
-            <li data-index="3"><span class="dot"></span> NCH Baker Hospital (8.0 miles)</li>
-            <li data-index="4"><span class="dot"></span> Arthrex Inc. Headquarters and Medical Education Center (7.5 miles)</li>
-            <li data-index="5"><span class="dot"></span> Paradise Coast Sports Complex (7.6 miles)</li>
+            <li data-index="0"><span class="dot"></span> Alligator Alley Western Entrance (~13 minutes)</li>
+            <li data-index="1"><span class="dot"></span> Naples Airport (~15 minutes)</li>
+            <li data-index="2"><span class="dot"></span> The Gulf shoreline (~18 minutes)</li>
+            <li data-index="3"><span class="dot"></span> NCH Baker Hospital (~20 minutes)</li>
+            <li data-index="4"><span class="dot"></span> Arthrex Inc. Headquarters and Medical Education Center (~16 minutes)</li>
+            <li data-index="5"><span class="dot"></span> Paradise Coast Sports Complex (~15 minutes)</li>
           </ul>
         </div>
         <div class="location-cards" id="location-cards">
@@ -1245,7 +1247,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
               <div class="loc-logo"><img src="images/logos/alligator-alley-white.png" data-color-src="images/logos/alligator-alley.png" alt="Alligator Alley"></div>
               <div class="loc-card-meta">
                 <div class="loc-card-title">Alligator Alley Western Entrance</div>
-                <div class="loc-card-desc">7.8 miles</div>
+                <div class="loc-card-desc">~13 minutes</div>
               </div>
             </div>
             <p class="loc-blurb">The western gateway to Alligator Alley, the 80-mile stretch of I-75 that crosses the Florida Everglades between Naples and Fort Lauderdale. With virtually no lodging along the protected corridor, cross-state travelers stay in established markets at either end.</p>
@@ -1256,7 +1258,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
               <div class="loc-logo"><img src="images/logos/naples-airport-white.png" data-color-src="images/logos/naples-airport.png" alt="Naples Airport"></div>
               <div class="loc-card-meta">
                 <div class="loc-card-title">Naples Airport</div>
-                <div class="loc-card-desc">5.9 miles</div>
+                <div class="loc-card-desc">~15 minutes</div>
               </div>
             </div>
             <p class="loc-blurb">A general aviation airport serving private and corporate aircraft, supporting the private aviation activity that brings business and leisure travelers into Naples.</p>
@@ -1267,7 +1269,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
               <div class="loc-logo" style="height:100px"><img src="images/logos/gulf-shorelines-white.png" data-color-src="images/logos/gulf-shorelines.png" alt="The Gulf Shorelines, Naples, Florida"></div>
               <div class="loc-card-meta">
                 <div class="loc-card-title">The Gulf Shoreline</div>
-                <div class="loc-card-desc">6.2 miles</div>
+                <div class="loc-card-desc">~18 minutes</div>
               </div>
             </div>
             <p class="loc-blurb">Naples’ renowned white-sand beaches along the Gulf, including the historic Naples Pier, anchor the market’s leisure appeal and draw domestic visitors throughout the year.</p>
@@ -1278,7 +1280,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
               <div class="loc-logo"><img src="images/logos/nch-white.svg" data-color-src="images/logos/nch.svg" alt="NCH"></div>
               <div class="loc-card-meta">
                 <div class="loc-card-title">NCH Baker Hospital</div>
-                <div class="loc-card-desc">8.0 miles</div>
+                <div class="loc-card-desc">~20 minutes</div>
               </div>
             </div>
             <p class="loc-blurb">The flagship hospital of Naples Comprehensive Health (NCH), one of the area’s major healthcare employers, generating weekday and extended-stay demand from medical staff, patients, and visiting families.</p>
@@ -1289,7 +1291,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
               <div class="loc-logo"><img src="images/logos/arthrex-white.svg" data-color-src="images/logos/arthrex.svg" alt="Arthrex"></div>
               <div class="loc-card-meta">
                 <div class="loc-card-title">Arthrex Inc. Headquarters and Medical Education Center</div>
-                <div class="loc-card-desc">7.5 miles</div>
+                <div class="loc-card-desc">~16 minutes</div>
               </div>
             </div>
             <p class="loc-blurb">Arthrex, a global leader in orthopedic medical devices, is headquartered in Naples. Its Medical Education Center hosts surgeons and medical professionals for hands-on training, adding steady corporate visitation to the market.</p>
@@ -1300,7 +1302,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
               <div class="loc-logo"><img src="images/logos/paradise-coast-white.svg" data-color-src="images/logos/paradise-coast.svg" alt="Paradise Coast Sports Complex"></div>
               <div class="loc-card-meta">
                 <div class="loc-card-title">Paradise Coast Sports Complex</div>
-                <div class="loc-card-desc">7.6 miles</div>
+                <div class="loc-card-desc">~15 minutes</div>
               </div>
             </div>
             <p class="loc-blurb">A destination sports complex that hosts tournament activity throughout the year, bringing teams and families into Naples for multi-night stays.</p>
@@ -1432,13 +1434,13 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <div>
           <div class="footer-col-title">Exclusive Representatives</div>
           <div class="contact-grid">
-            <div><div class="contact-name">Clint Hodges</div><div class="contact-title">Managing Director</div><a class="contact-email" href="mailto:chodges@hodgeswardelliott.com">chodges@hodgeswardelliott.com</a></div>
+            <div><div class="contact-name">Clint Hodges</div><div class="contact-title">Executive Managing Director</div><a class="contact-email" href="mailto:chodges@hodgeswardelliott.com">chodges@hodgeswardelliott.com</a></div>
             <div><div class="contact-name">Michael Brandes</div><div class="contact-title">Vice President</div><a class="contact-email" href="mailto:mbrandes@hodgeswardelliott.com">mbrandes@hodgeswardelliott.com</a></div>
             <div><div class="contact-name">Kevin Felmley</div><div class="contact-title">Analyst</div><a class="contact-email" href="mailto:kfelmley@hodgeswardelliott.com">kfelmley@hodgeswardelliott.com</a></div>
           </div>
           <div class="footer-col-title">Acquisition Financing Advisor</div>
           <div class="contact-grid" style="margin-bottom:0">
-            <div><div class="contact-name">Michael Britvan</div><div class="contact-title">Managing Director</div><a class="contact-email" href="mailto:mbritvan@hodgeswardelliott.com">mbritvan@hodgeswardelliott.com</a></div>
+            <div><div class="contact-name">Michael Britvan</div><div class="contact-title">Executive Managing Director</div><a class="contact-email" href="mailto:mbritvan@hodgeswardelliott.com">mbritvan@hodgeswardelliott.com</a></div>
           </div>
         </div>
       </div>
