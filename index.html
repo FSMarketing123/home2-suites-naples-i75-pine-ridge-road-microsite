@@ -883,14 +883,14 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .quote-card{position:relative;margin:0;flex:1;display:grid;grid-template-columns:44px 1fr;gap:20px;align-items:stretch;
        background:linear-gradient(180deg,#44737A 0%,var(--primary) 55%,#3A646B 100%);border-radius:4px;padding:20px 26px 18px 20px;
        box-shadow:0 1px 3px rgba(20,34,37,.28),0 10px 22px rgba(20,34,37,.22);
-       transition:box-shadow 1.4s cubic-bezier(.2,.7,.2,1)}
+       transition:box-shadow 2.8s cubic-bezier(.25,.6,.2,1)}
   /* Curled lower corners: two rotated shadows tucked behind the card. Hover flattens the card
      quickly; hovering off lets the corners slowly curl back up (longer transition on the base state). */
-  .quote-card::before,.quote-card::after{content:"";position:absolute;z-index:-1;bottom:18px;width:46%;height:36px;
-       box-shadow:0 26px 18px rgba(20,34,37,.68);
-       transition:transform 1.4s cubic-bezier(.2,.7,.2,1),box-shadow 1.4s cubic-bezier(.2,.7,.2,1),bottom 1.4s cubic-bezier(.2,.7,.2,1)}
-  .quote-card::before{left:14px;transform:skewY(-4deg) rotate(-7deg)}
-  .quote-card::after{right:14px;transform:skewY(4deg) rotate(7deg)}
+  .quote-card::before,.quote-card::after{content:"";position:absolute;z-index:-1;bottom:14px;width:46%;height:30px;
+       box-shadow:0 18px 14px rgba(20,34,37,.5);
+       transition:transform 2.8s cubic-bezier(.25,.6,.2,1),box-shadow 2.8s cubic-bezier(.25,.6,.2,1),bottom 2.8s cubic-bezier(.25,.6,.2,1)}
+  .quote-card::before{left:14px;transform:skewY(-2deg) rotate(-4deg)}
+  .quote-card::after{right:14px;transform:skewY(2deg) rotate(4deg)}
   .quote-card:hover{box-shadow:0 1px 2px rgba(20,34,37,.22),0 4px 10px rgba(20,34,37,.16);
        transition:box-shadow .35s ease}
   .quote-card:hover::before,.quote-card:hover::after{transform:none;bottom:4px;box-shadow:0 4px 6px rgba(20,34,37,.2);
