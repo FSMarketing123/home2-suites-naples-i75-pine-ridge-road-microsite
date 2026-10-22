@@ -882,29 +882,16 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .quote-stack{display:flex;flex-direction:column;gap:18px;position:relative;z-index:0}
   .quote-card{position:relative;margin:0;flex:1;display:grid;grid-template-columns:44px 1fr;gap:20px;align-items:stretch;
        background:linear-gradient(180deg,#44737A 0%,var(--primary) 55%,#3A646B 100%);border-radius:4px;padding:20px 26px 18px 20px;
-       box-shadow:0 1px 3px rgba(20,34,37,.28),0 10px 22px rgba(20,34,37,.22);
-       transition:box-shadow 2.8s cubic-bezier(.25,.6,.2,1)}
-  /* Curled lower corners: two rotated shadows tucked behind the card. Hover flattens the card
-     quickly; hovering off lets the corners slowly curl back up (longer transition on the base state). */
-  .quote-card::before,.quote-card::after{content:"";position:absolute;z-index:-1;bottom:14px;width:46%;height:30px;
-       box-shadow:0 18px 14px rgba(20,34,37,.5);
-       transition:transform 2.8s cubic-bezier(.25,.6,.2,1),box-shadow 2.8s cubic-bezier(.25,.6,.2,1),bottom 2.8s cubic-bezier(.25,.6,.2,1)}
-  .quote-card::before{left:14px;transform:skewY(-2deg) rotate(-4deg)}
-  .quote-card::after{right:14px;transform:skewY(2deg) rotate(4deg)}
-  .quote-card:hover{box-shadow:0 1px 2px rgba(20,34,37,.22),0 4px 10px rgba(20,34,37,.16);
-       transition:box-shadow .35s ease}
-  .quote-card:hover::before,.quote-card:hover::after{transform:none;bottom:4px;box-shadow:0 4px 6px rgba(20,34,37,.2);
-       transition:transform .35s ease,box-shadow .35s ease,bottom .35s ease}
-  /* The card's own corner peels up: a folded flap at the bottom-right showing the card's lighter
-     underside, with the sand page visible beneath. Flattens on hover, slowly peels back on hover-off. */
-  .quote-card{border-bottom-right-radius:0}
-  .quote-curl{position:absolute;right:0;bottom:0;width:46px;height:46px;pointer-events:none;
-       background:linear-gradient(315deg,var(--sand) 0%,var(--sand) 49.5%,#9cb7ba 50%,#dfe9ea 60%,#b9cdd0 72%,#6f9398 100%);
-       border-top-left-radius:12px;box-shadow:-4px -4px 9px rgba(20,34,37,.32);
-       transition:width 2.8s cubic-bezier(.25,.6,.2,1),height 2.8s cubic-bezier(.25,.6,.2,1),box-shadow 2.8s cubic-bezier(.25,.6,.2,1)}
-  .quote-card:hover .quote-curl{width:0;height:0;box-shadow:0 0 0 rgba(20,34,37,0);
-       transition:width .35s ease,height .35s ease,box-shadow .35s ease}
-  @media(prefers-reduced-motion:reduce){.quote-curl{transition:none}}
+       box-shadow:0 1px 3px rgba(20,34,37,.28),0 10px 22px rgba(20,34,37,.22);overflow:hidden;
+       transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) scale(var(--s,1));
+       transform-style:preserve-3d;will-change:transform;
+       transition:transform .6s cubic-bezier(.2,.7,.2,1),box-shadow .6s ease}
+  /* 3D tilt: the card leans toward the cursor (set by script); a soft glare follows the pointer */
+  .quote-card.is-tilting{transition:transform .12s ease-out,box-shadow .3s ease;--s:1.03;
+       box-shadow:0 2px 6px rgba(20,34,37,.25),0 22px 40px rgba(20,34,37,.3)}
+  .quote-card::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s ease;
+       background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.22),rgba(255,255,255,0) 55%)}
+  .quote-card.is-tilting::after{opacity:1}
   .quote-rail{display:flex;flex-direction:column;align-items:center}
   .quote-mark{font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:64px;line-height:.78;color:#fff;height:34px}
   .quote-bar{flex:1;width:6px;min-height:24px;margin-top:10px;background:var(--accent);border-radius:1px}
@@ -929,7 +916,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .fl-revpar .naples > *{background:rgba(var(--accent-rgb),.2);font-weight:600;color:var(--primary-deep)}
   .fl-revpar .naples > :first-child{box-shadow:inset 4px 0 0 var(--accent)}
   .fl-revpar .naples:hover > *{background:rgba(var(--accent-rgb),.32);color:var(--primary-deep)}
-  @media(prefers-reduced-motion:reduce){.fl-revpar .market-row,.fl-revpar .market-row > *,.quote-card,.quote-card::before,.quote-card::after{transition:none}}
+  @media(prefers-reduced-motion:reduce){.fl-revpar .market-row,.fl-revpar .market-row > *,.quote-card,.quote-card::after{transition:none}}
   @media(max-width:760px){
     .quote-card{grid-template-columns:34px 1fr;gap:14px;padding:16px 18px 14px 14px}
     .quote-mark{font-size:50px;height:26px}
@@ -1293,27 +1280,22 @@ svg.leaflet-image-layer.leaflet-interactive path {
           <figure class="quote-card">
             <div class="quote-rail" aria-hidden="true"><span class="quote-mark">&rdquo;</span><span class="quote-bar"></span></div>
             <blockquote><p class="quote-title">#1 Best Place to Live in the U.S.</p><figcaption class="quote-src">U.S. News &amp; World Report, 2024–2025</figcaption></blockquote>
-            <span class="quote-curl" aria-hidden="true"></span>
           </figure>
           <figure class="quote-card">
             <div class="quote-rail" aria-hidden="true"><span class="quote-mark">&rdquo;</span><span class="quote-bar"></span></div>
             <blockquote><p class="quote-title">#1 Best Place to Retire in the U.S.</p><figcaption class="quote-src">U.S. News &amp; World Report, 2025</figcaption></blockquote>
-            <span class="quote-curl" aria-hidden="true"></span>
           </figure>
           <figure class="quote-card">
             <div class="quote-rail" aria-hidden="true"><span class="quote-mark">&rdquo;</span><span class="quote-bar"></span></div>
             <blockquote><p class="quote-title">Florida’s Richest Retirement Town</p><figcaption class="quote-src">GOBankingRates, 2026</figcaption></blockquote>
-            <span class="quote-curl" aria-hidden="true"></span>
           </figure>
           <figure class="quote-card">
             <div class="quote-rail" aria-hidden="true"><span class="quote-mark">&rdquo;</span><span class="quote-bar"></span></div>
             <blockquote><p class="quote-title">One of the 50 Best Places to Travel in 2026</p><figcaption class="quote-src">Travel + Leisure, 2026</figcaption></blockquote>
-            <span class="quote-curl" aria-hidden="true"></span>
           </figure>
           <figure class="quote-card">
             <div class="quote-rail" aria-hidden="true"><span class="quote-mark">&rdquo;</span><span class="quote-bar"></span></div>
             <blockquote><p class="quote-title">#3 Most Expensive Luxury Housing Market in the U.S.</p><figcaption class="quote-src">Realtor.com, 2026</figcaption></blockquote>
-            <span class="quote-curl" aria-hidden="true"></span>
           </figure>
         </div>
         <div class="fl-revpar-card">
@@ -1886,7 +1868,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
     (function () {
       var SEL = ".h2, .lead, .stats-card, .g-item, .photo-frame, .shot, "
               + ".side-photo, #overview-photo, .brand-stat, .brand-logo-grid, .location-cards, "
-              + ".callout-list, .stat-callout, .map-shell, .cta-buttons, .footer-grid, .quote-card, .fl-revpar-card";
+              + ".callout-list, .stat-callout, .map-shell, .cta-buttons, .footer-grid, .quote-stack, .fl-revpar-card";
       var els = Array.prototype.slice.call(document.querySelectorAll(SEL)).filter(function (el) {
         return !el.closest("#top") && !el.closest(".nav");
       });
@@ -1908,6 +1890,32 @@ svg.leaflet-image-layer.leaflet-interactive path {
         });
       }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
       els.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+  <script>
+    // Quote cards: 3D tilt toward the pointer (skipped for reduced motion and touch-only devices)
+    (function () {
+      var cards = document.querySelectorAll(".quote-card");
+      if (!cards.length) return;
+      if (window.matchMedia && (window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+          !window.matchMedia("(hover: hover)").matches)) return;
+      var MAX = 9; // degrees
+      cards.forEach(function (card) {
+        card.addEventListener("pointermove", function (e) {
+          var r = card.getBoundingClientRect();
+          var px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+          card.classList.add("is-tilting");
+          card.style.setProperty("--ry", ((px - .5) * 2 * MAX).toFixed(2) + "deg");
+          card.style.setProperty("--rx", ((.5 - py) * 2 * MAX).toFixed(2) + "deg");
+          card.style.setProperty("--gx", (px * 100).toFixed(1) + "%");
+          card.style.setProperty("--gy", (py * 100).toFixed(1) + "%");
+        });
+        card.addEventListener("pointerleave", function () {
+          card.classList.remove("is-tilting");
+          card.style.setProperty("--rx", "0deg");
+          card.style.setProperty("--ry", "0deg");
+        });
+      });
     })();
   </script>
 </body>
