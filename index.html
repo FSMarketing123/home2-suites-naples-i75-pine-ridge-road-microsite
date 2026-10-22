@@ -857,6 +857,17 @@ svg.leaflet-image-layer.leaflet-interactive path {
        text-transform:uppercase;color:#fff;pointer-events:none}
   .side-photos.tall .side-photo img{height:270px}
   .side-photos.x-tall .side-photo img{height:400px}
+  /* Recent Vintage: copy + 3 photos on a 2x2 grid with equal rows, so every photo is the same
+     size and the left photo is flush with the right column's bottom photo */
+  .vintage-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:minmax(400px,1fr) minmax(400px,1fr);
+       grid-template-areas:"copy a" "c b";column-gap:64px;row-gap:24px}
+  .vintage-grid .photo-frame{height:100%}
+  .vintage-grid .photo-frame img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+  .vintage-grid .photo-frame:hover img{transform:scale(1.03)}
+  @media(max-width:760px){
+    .vintage-grid{grid-template-columns:1fr;grid-template-rows:auto;grid-template-areas:"copy" "a" "b" "c";row-gap:20px}
+    .vintage-grid .photo-frame{height:280px}
+  }
   /* Hero logo on a frosted-glass panel */
   .hero-glass{padding:clamp(26px,2.6vw,40px) clamp(30px,3vw,48px);border-radius:6px;
        background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);
@@ -865,7 +876,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .shot{width:100%;object-fit:cover;border-radius:2px;box-shadow:0 24px 70px rgba(32,52,56,.22)}
 
   /* Stat callouts */
-  .footnote{font-size:12px;line-height:1.6;color:var(--text);opacity:.85;margin-top:16px}
+  .footnote{font-size:15.5px;line-height:1.8;color:var(--text);font-style:italic;margin-top:20px}
   .stat-callout-row{display:grid;grid-template-columns:1fr;gap:16px;margin:36px 0 0}
   .stat-callout{background:var(--white);border-left:4px solid var(--accent);padding:28px 30px;
        box-shadow:0 18px 50px rgba(32,52,56,.12);display:flex;align-items:center;gap:28px;flex-wrap:wrap}
@@ -1164,24 +1175,22 @@ svg.leaflet-image-layer.leaflet-interactive path {
   <!-- HIGHLIGHT: RECENT VINTAGE -->
   <section class="section highlight-section bg-white">
     <div class="wrap">
-      <div class="two-col">
-        <div>
-        <h2 class="h2">Recent Vintage Extended-Stay Product with Superior Structural Quality</h2>
-        <p class="lead" style="max-width:68ch;margin-top:28px">Opened in 2020, the Property is Naples’ newest extended-stay hotel, offering a contemporary all-suite product with limited near-term capital requirements, in-room kitchens, and complimentary surface parking. Amenities include an outdoor pool, fitness center, business center, and Home2 Market. Reinforced concrete masonry unit (CMU) construction distinguishes the Property from the wood-framed construction typically used for Home2 Suites hotels. The combination of institutional construction quality and an all-suite format with kitchens provides physical durability and additional exit optionality over the long term.</p>
+      <div class="vintage-grid">
+        <div style="grid-area:copy">
+          <h2 class="h2">Recent Vintage Extended-Stay Product with Superior Structural Quality</h2>
+          <p class="lead" style="max-width:68ch;margin-top:28px">Opened in 2020, the Property is Naples’ newest extended-stay hotel, offering a contemporary all-suite product with limited near-term capital requirements, in-room kitchens, and complimentary surface parking. Amenities include an outdoor pool, fitness center, business center, and Home2 Market. Reinforced concrete masonry unit (CMU) construction distinguishes the Property from the wood-framed construction typically used for Home2 Suites hotels. The combination of institutional construction quality and an all-suite format with kitchens provides physical durability and additional exit optionality over the long term.</p>
         </div>
-        <div class="side-photos x-tall">
-          <div class="side-photo">
-            <div class="photo-frame">
-              <img src="images/h1-exterior.jpg" alt="Hotel exterior and entrance" />
-              <div class="photo-label">Hotel Exterior</div>
-            </div>
-          </div>
-          <div class="side-photo">
-            <div class="photo-frame">
-              <img src="images/h1-suite.jpg" alt="Suite with in-room kitchen" />
-              <div class="photo-label">All-Suite Format</div>
-            </div>
-          </div>
+        <div class="photo-frame" style="grid-area:a">
+          <img src="images/h1-exterior.jpg" alt="Hotel exterior and entrance" />
+          <div class="photo-label">Hotel Exterior</div>
+        </div>
+        <div class="photo-frame" style="grid-area:c">
+          <img src="images/h1-entrance.jpg" alt="Hotel entrance and drive with landscaped palms" />
+          <div class="photo-label">Hotel Entrance</div>
+        </div>
+        <div class="photo-frame" style="grid-area:b">
+          <img src="images/h1-suite.jpg" alt="Suite with in-room kitchen" />
+          <div class="photo-label">All-Suite Format</div>
         </div>
       </div>
     </div>
