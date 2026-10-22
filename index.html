@@ -877,6 +877,43 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
   /* Stat callouts */
   .lead strong{font-weight:600}
+  /* Flourishing Leisure: accolade quotes + Florida RevPAR table */
+  .leisure-proof{margin-top:56px;align-items:stretch}
+  .quote-stack{display:flex;flex-direction:column;gap:14px}
+  .quote-card{margin:0;flex:1;display:grid;grid-template-columns:44px 1fr;gap:20px;align-items:stretch;
+       background:#fff;border:2px solid rgba(var(--primary-rgb),.18);border-radius:10px;padding:20px 26px 18px 20px;
+       transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+  .quote-card:hover{transform:scale(1.02);border-color:rgba(var(--primary-rgb),.45);box-shadow:0 18px 44px rgba(32,52,56,.14)}
+  .quote-rail{display:flex;flex-direction:column;align-items:center}
+  .quote-mark{font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:64px;line-height:.78;color:var(--primary);height:34px}
+  .quote-bar{flex:1;width:6px;min-height:24px;margin-top:10px;background:var(--accent);border-radius:1px}
+  .quote-card blockquote{margin:0;display:flex;flex-direction:column;justify-content:center}
+  .quote-title{font-family:var(--font-cormorant);font-weight:700;text-transform:uppercase;letter-spacing:.01em;
+       font-size:clamp(20px,1.9vw,25px);line-height:1.12;color:var(--primary);margin:0;font-variant-numeric:lining-nums}
+  .quote-src{font-family:var(--font-body);font-weight:300;font-size:13.5px;color:var(--text);margin-top:10px}
+  .fl-revpar-card{background:#fff;border-radius:2px;box-shadow:0 18px 50px rgba(32,52,56,.12);padding:10px 14px}
+  table.fl-revpar{width:100%;table-layout:fixed;border-collapse:separate;border-spacing:0 5px;font-family:var(--font-body)}
+  .fl-revpar thead th{vertical-align:bottom;text-align:right;font-size:10.5px;font-weight:600;letter-spacing:.14em;
+       text-transform:uppercase;color:var(--primary);padding:12px 14px 10px;line-height:1.4;border-bottom:1px solid var(--divider)}
+  .fl-revpar thead th:first-child{text-align:left}
+  .fl-revpar tbody th,.fl-revpar tbody td{padding:12px 14px;font-size:14.5px;color:var(--text);vertical-align:middle;
+       background:transparent;transition:background-color .18s ease,color .18s ease}
+  .fl-revpar tbody th{text-align:left;font-weight:400}
+  .fl-revpar tbody td{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .fl-revpar .market-row{transform-origin:center;transition:transform .18s ease}
+  .fl-revpar .market-row:hover{transform:translateY(-1px) scale(1.012);position:relative;z-index:2}
+  .fl-revpar .market-row:hover > *{background:var(--sand-lt);color:var(--primary)}
+  .fl-revpar .naples > *{background:rgba(var(--accent-rgb),.2);font-weight:600;color:var(--primary-deep)}
+  .fl-revpar .naples > :first-child{box-shadow:inset 4px 0 0 var(--accent)}
+  .fl-revpar .naples:hover > *{background:rgba(var(--accent-rgb),.32);color:var(--primary-deep)}
+  @media(prefers-reduced-motion:reduce){.fl-revpar .market-row,.fl-revpar .market-row > *,.quote-card{transition:none}}
+  @media(max-width:760px){
+    .quote-card{grid-template-columns:34px 1fr;gap:14px;padding:16px 18px 14px 14px}
+    .quote-mark{font-size:50px;height:26px}
+    .fl-revpar-card{padding:4px 6px;overflow-x:auto}
+    .fl-revpar thead th,.fl-revpar tbody th,.fl-revpar tbody td{padding:10px 8px;font-size:12.5px}
+    .fl-revpar thead th{font-size:9.5px;letter-spacing:.08em}
+  }
   .footnote{font-size:15.5px;line-height:1.8;color:var(--text);font-style:italic;margin-top:20px}
   .stat-callout-row{display:grid;grid-template-columns:1fr;gap:16px;margin:36px 0 0}
   .stat-callout{background:var(--white);border-left:4px solid var(--accent);padding:28px 30px;
@@ -977,7 +1014,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   table.gen-table tbody tr.active{background:rgba(var(--accent-rgb),.16)}
   .pin-badge{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;
        border-radius:50%;background:var(--primary);color:#fff;font-size:10px;margin-right:8px}
-  .reset-btn{position:absolute;bottom:16px;right:16px;z-index:400;background:var(--primary);color:#fff;
+  .reset-btn{position:absolute;top:10px;left:56px;z-index:1000;box-shadow:0 1px 5px rgba(0,0,0,.25);background:var(--primary);color:#fff;
        border:none;padding:9px 16px;font-family:var(--font-body);font-size:10.5px;font-weight:600;
        letter-spacing:.16em;text-transform:uppercase;cursor:pointer;border-radius:1px}
   .reset-btn:hover{background:var(--primary-dk)}
@@ -1226,6 +1263,52 @@ svg.leaflet-image-layer.leaflet-interactive path {
               <div class="photo-label">Renowned Golf Courses</div>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="two-col leisure-proof">
+        <div class="quote-stack">
+          <figure class="quote-card">
+            <div class="quote-rail" aria-hidden="true"><span class="quote-mark">&rdquo;</span><span class="quote-bar"></span></div>
+            <blockquote><p class="quote-title">#1 Best Place to Live in the U.S.</p><figcaption class="quote-src">U.S. News &amp; World Report, 2024–2025</figcaption></blockquote>
+          </figure>
+          <figure class="quote-card">
+            <div class="quote-rail" aria-hidden="true"><span class="quote-mark">&rdquo;</span><span class="quote-bar"></span></div>
+            <blockquote><p class="quote-title">#1 Best Place to Retire in the U.S.</p><figcaption class="quote-src">U.S. News &amp; World Report, 2025</figcaption></blockquote>
+          </figure>
+          <figure class="quote-card">
+            <div class="quote-rail" aria-hidden="true"><span class="quote-mark">&rdquo;</span><span class="quote-bar"></span></div>
+            <blockquote><p class="quote-title">Florida’s Richest Retirement Town</p><figcaption class="quote-src">GOBankingRates, 2026</figcaption></blockquote>
+          </figure>
+          <figure class="quote-card">
+            <div class="quote-rail" aria-hidden="true"><span class="quote-mark">&rdquo;</span><span class="quote-bar"></span></div>
+            <blockquote><p class="quote-title">One of the 50 Best Places to Travel in 2026</p><figcaption class="quote-src">Travel + Leisure, 2026</figcaption></blockquote>
+          </figure>
+          <figure class="quote-card">
+            <div class="quote-rail" aria-hidden="true"><span class="quote-mark">&rdquo;</span><span class="quote-bar"></span></div>
+            <blockquote><p class="quote-title">#3 Most Expensive Luxury Housing Market in the U.S.</p><figcaption class="quote-src">Realtor.com, 2026</figcaption></blockquote>
+          </figure>
+        </div>
+        <div class="fl-revpar-card">
+          <table class="fl-revpar" aria-label="Florida market RevPAR comparison, trailing twelve months through September 2026, with Naples emphasized">
+            <colgroup><col style="width:40%"><col style="width:30%"><col style="width:30%"></colgroup>
+            <thead><tr><th scope="col">Market</th><th scope="col">T12 Sept. 2026 RevPAR</th><th scope="col">RevPAR Growth Since 2019</th></tr></thead>
+            <tbody>
+                <tr class="market-row"><th scope="row">Sarasota</th><td>$146.02</td><td>62.5%</td></tr>
+                <tr class="market-row"><th scope="row">Palm Beach</th><td>$207.22</td><td>59.7%</td></tr>
+                <tr class="market-row naples"><th scope="row">Naples</th><td>$230.08</td><td>50.5%</td></tr>
+                <tr class="market-row"><th scope="row">Tampa Bay</th><td>$121.41</td><td>30.1%</td></tr>
+                <tr class="market-row"><th scope="row">Miami</th><td>$178.98</td><td>29.8%</td></tr>
+                <tr class="market-row"><th scope="row">Florida Central South</th><td>$86.81</td><td>29.6%</td></tr>
+                <tr class="market-row"><th scope="row">Florida Central North</th><td>$70.60</td><td>21.2%</td></tr>
+                <tr class="market-row"><th scope="row">Ft. Lauderdale</th><td>$135.29</td><td>20.7%</td></tr>
+                <tr class="market-row"><th scope="row">Orlando</th><td>$149.88</td><td>18.3%</td></tr>
+                <tr class="market-row"><th scope="row">Melbourne</th><td>$97.30</td><td>16.5%</td></tr>
+                <tr class="market-row"><th scope="row">Jacksonville</th><td>$93.44</td><td>15.1%</td></tr>
+                <tr class="market-row"><th scope="row">Daytona Beach</th><td>$80.50</td><td>10.7%</td></tr>
+                <tr class="market-row"><th scope="row">Florida Panhandle</th><td>$91.19</td><td>9.2%</td></tr>
+                <tr class="market-row"><th scope="row">Ft. Myers</th><td>$106.48</td><td>5.4%</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -1774,7 +1857,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
     (function () {
       var SEL = ".h2, .lead, .stats-card, .g-item, .photo-frame, .shot, "
               + ".side-photo, #overview-photo, .brand-stat, .brand-logo-grid, .location-cards, "
-              + ".callout-list, .stat-callout, .map-shell, .cta-buttons, .footer-grid";
+              + ".callout-list, .stat-callout, .map-shell, .cta-buttons, .footer-grid, .quote-card, .fl-revpar-card";
       var els = Array.prototype.slice.call(document.querySelectorAll(SEL)).filter(function (el) {
         return !el.closest("#top") && !el.closest(".nav");
       });
