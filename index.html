@@ -859,13 +859,14 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .side-photos.x-tall .side-photo img{height:400px}
   /* Recent Vintage: copy + 3 photos on a 2x2 grid with equal rows, so every photo is the same
      size and the left photo is flush with the right column's bottom photo */
-  .vintage-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:minmax(400px,1fr) minmax(400px,1fr);
-       grid-template-areas:"copy a" "c b";column-gap:64px;row-gap:24px}
+  .vintage-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto 400px;
+       grid-template-areas:"copy copy" "c b";column-gap:64px;row-gap:40px}
+  .highlight-section .vintage-grid h2{max-width:none}
   .vintage-grid .photo-frame{height:100%}
   .vintage-grid .photo-frame img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
   .vintage-grid .photo-frame:hover img{transform:scale(1.03)}
   @media(max-width:760px){
-    .vintage-grid{grid-template-columns:1fr;grid-template-rows:auto;grid-template-areas:"copy" "a" "b" "c";row-gap:20px}
+    .vintage-grid{grid-template-columns:1fr;grid-template-rows:auto;grid-template-areas:"copy" "b" "c";row-gap:20px}
     .vintage-grid .photo-frame{height:280px}
   }
   /* Hero logo on a frosted-glass panel */
@@ -1227,11 +1228,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <div class="vintage-grid">
         <div style="grid-area:copy">
           <h2 class="h2">Recent Vintage Extended-Stay Product with Superior Structural Quality</h2>
-          <p class="lead" style="max-width:68ch;margin-top:28px">Recently built in 2020, the Property is Naples’ only Hilton-branded extended-stay hotel, offering a contemporary all-suite product with limited near-term capital requirements, in-room kitchens, and complimentary surface parking. Amenities include an outdoor pool, fitness center, business center, and Home2 Market, a 24-hour convenience shop. Reinforced concrete masonry unit (CMU) construction distinguishes the Property from the wood-framed construction typically used for Home2 Suites hotels. The combination of institutional construction quality and an all-suite format with kitchens provides physical durability and additional exit optionality over the long term.</p>
-        </div>
-        <div class="photo-frame" style="grid-area:a">
-          <img src="images/h1-exterior.jpg" alt="Hotel exterior and entrance" />
-          <div class="photo-label">Hotel Exterior</div>
+          <p class="lead" style="margin-top:28px">Recently built in 2020, the Property is Naples’ only Hilton-branded extended-stay hotel, offering a contemporary all-suite product with limited near-term capital requirements, in-room kitchens, and complimentary surface parking. Amenities include an outdoor pool, fitness center, business center, and Home2 Market, a 24-hour convenience shop. Reinforced concrete masonry unit (CMU) construction distinguishes the Property from the wood-framed construction typically used for Home2 Suites hotels. The combination of institutional construction quality and an all-suite format with kitchens provides physical durability and additional exit optionality over the long term.</p>
         </div>
         <div class="photo-frame" style="grid-area:c">
           <img src="images/h1-pool.jpg" alt="Outdoor pool deck with the hotel behind" />
