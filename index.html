@@ -949,6 +949,32 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .aa-map-right{display:flex;flex-direction:column;justify-content:center;gap:3%;padding:3% 4% 4%}
   .aa-logo{display:block;width:100%;height:auto}
   @media(max-width:760px){.aa-map{grid-template-columns:1fr}.aa-map-left{border-right:0;border-bottom:1px solid #e2e7e1}}
+  /* Premier Hospitality Market: copy + callout + photo | comparison table */
+  .highlight-section h2.market-title{max-width:none}
+  .market-grid{display:grid;grid-template-columns:1.65fr 1fr;gap:clamp(32px,4vw,56px);margin-top:36px;align-items:stretch}
+  .market-main{display:flex;flex-direction:column}
+  .market-callout{display:flex;align-items:center;gap:30px;margin-top:30px;padding:6px 0 6px 30px;border-left:6px solid var(--accent)}
+  .market-callout-num{font-family:"Roboto Slab",Georgia,serif;font-weight:800;font-size:clamp(46px,5vw,66px);line-height:1;color:var(--text)}
+  .market-callout-text{font-family:var(--font-cormorant);font-style:italic;font-weight:500;font-size:clamp(22px,2.2vw,30px);line-height:1.2;color:var(--text)}
+  .market-callout-text span{display:block;font-family:var(--font-body);font-style:normal;font-weight:500;font-size:14px;letter-spacing:.04em;margin-top:6px}
+  .market-photo{flex:1;min-height:360px;margin-top:30px}
+  .market-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%;display:block}
+  .market-side .fl-revpar-title{font-family:var(--font-body);font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase;
+       color:var(--text);text-align:left;margin:0 0 12px;padding:0}
+  .market-side table.fl-revpar{border-spacing:0;background:#fff}
+  .market-side .fl-revpar thead th{background:var(--accent);color:#fff;border-bottom:0;font-size:12.5px;font-weight:700;letter-spacing:.06em;
+       text-align:center;padding:12px 10px}
+  .market-side .fl-revpar thead th:first-child{text-align:left;padding-left:16px}
+  .market-side .fl-revpar tbody th,.market-side .fl-revpar tbody td{border-bottom:1px solid rgba(var(--accent-rgb),.35);padding:13px 10px;font-size:15.5px}
+  .market-side .fl-revpar tbody th{padding-left:16px}
+  .market-side .fl-revpar tbody td{text-align:center}
+  .market-side .fl-revpar .naples > *{background:#fff;font-weight:700;color:var(--text);padding-top:20px;padding-bottom:20px}
+  .market-side .fl-revpar .naples > :first-child{box-shadow:none}
+  .market-side .fl-revpar .naples:hover > *{background:var(--sand-lt)}
+  .market-side .fl-revpar-source{margin:10px 0 0;padding-left:6px}
+  .market-side .footnote{font-size:13px;margin-top:10px;padding-left:6px}
+  @media(max-width:900px){.market-grid{grid-template-columns:1fr}.market-photo{min-height:300px}}
+  @media(max-width:760px){.market-callout{gap:18px;padding-left:18px}}
   .footnote{font-size:15.5px;line-height:1.8;color:var(--text);font-style:italic;margin-top:20px}
   .stat-callout-row{display:grid;grid-template-columns:1fr;gap:16px;margin:36px 0 0}
   .stat-callout{background:var(--white);border-left:4px solid var(--accent);padding:28px 30px;
@@ -1267,39 +1293,24 @@ svg.leaflet-image-layer.leaflet-interactive path {
     </div>
   </section>
 
-  <!-- HIGHLIGHT: FLOURISHING LEISURE DESTINATION -->
-  <section class="section highlight-section bg-sand">
+  <!-- HIGHLIGHT: PREMIER HOSPITALITY MARKET -->
+  <section class="section highlight-section bg-sand" id="market">
     <div class="wrap">
-      <div class="two-col" style="align-items:stretch">
-        <div style="display:flex;flex-direction:column">
-          <h2 class="h2">Premier Hospitality Market with Exceptional Pricing Power</h2>
-          <p class="lead" style="max-width:68ch;margin-top:28px">Following a period of post-pandemic normalization, Naples continues to demonstrate exceptional lodging fundamentals, supported by its position as one of the nation’s premier luxury destinations. Naples’ trailing 12-month <strong>ADR reached $355</strong>, representing a <strong>51.3% increase</strong> over 2019 levels, while trailing 12-month <strong>RevPAR reached $230, the highest of any mainland Florida market</strong>. This sustained pricing strength underscores Naples’ ability to command premium rates and outperform competing destinations.</p>
-          <p class="lead" style="max-width:68ch;margin-top:20px">Approximately <strong>67% of Collier County’s land area is designated for conservation</strong>, limiting the land available for new hotel development. Ongoing mixed-use, healthcare, and luxury development is further enhancing the market’s appeal and diversifying its lodging demand base. Year-to-date through September 2026, <strong>ADR has increased 11.3%</strong>, while <strong>RevPAR has grown 14.0%</strong>, demonstrating continued momentum in an already high-performing lodging market.</p>
-          <p class="footnote"><i>All market trailing 12-month and year-to-date figures are through September 2026.</i></p>
-          <div class="stat-callout-row">
-            <div class="stat-callout">
-              <div class="stat-callout-num">14.0%</div>
-              <div class="stat-callout-text">Naples Market RevPAR Growth Year to Date<span>YTD September 2026</span></div>
-            </div>
+      <h2 class="h2 market-title">Premier Hospitality Market with Exceptional Pricing Power</h2>
+      <div class="market-grid">
+        <div class="market-main">
+          <p class="lead">Following a period of post-pandemic normalization, Naples continues to demonstrate exceptional lodging fundamentals, supported by its position as one of the nation’s premier luxury destinations. Naples’ trailing 12-month <strong>ADR reached $355</strong>, representing a <strong>51.3% increase</strong> over 2019 levels, while trailing 12-month <strong>RevPAR reached $230, the highest of any mainland Florida market</strong>. This sustained pricing strength underscores Naples’ ability to command premium rates and outperform competing destinations.</p>
+          <p class="lead" style="margin-top:20px">Approximately <strong>67% of Collier County’s land area is designated for conservation</strong>, limiting the land available for new hotel development. Ongoing mixed-use, healthcare, and luxury development is further enhancing the market’s appeal and diversifying its lodging demand base. Year-to-date through September 2026, <strong>ADR has increased 11.3%</strong>, while <strong>RevPAR has grown 14.0%</strong>, demonstrating continued momentum in an already high-performing lodging market.</p>
+          <div class="market-callout">
+            <div class="market-callout-num">14.0%</div>
+            <div class="market-callout-text">Naples Market RevPAR Growth Year Over Year<span>YTD September 2026</span></div>
+          </div>
+          <div class="photo-frame market-photo">
+            <img src="images/h2-pier.jpg" alt="Naples Pier at dusk" />
+            <div class="photo-label">Naples Pier</div>
           </div>
         </div>
-        <div class="side-photos x-tall">
-          <div class="side-photo">
-            <div class="photo-frame">
-              <img src="images/h2-pier.jpg" alt="Naples Pier at dusk" />
-              <div class="photo-label">Naples Pier</div>
-            </div>
-          </div>
-          <div class="side-photo">
-            <div class="photo-frame">
-              <img src="images/h2-grey-oaks.jpg?v=2" alt="Aerial view of Grey Oaks Country Club fairways and lakes" />
-              <div class="photo-label">Grey Oaks Country Club</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="leisure-proof">
-        <div class="fl-revpar-card">
+        <div class="market-side">
           <h3 class="fl-revpar-title">Mainland Florida Hotel Market Comparison</h3>
           <table class="fl-revpar" aria-label="Florida market RevPAR comparison, trailing twelve months through September 2026, with Naples emphasized">
             <colgroup><col style="width:40%"><col style="width:30%"><col style="width:30%"></colgroup>
@@ -1322,6 +1333,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
             </tbody>
           </table>
           <p class="fl-revpar-source">Source: CoStar</p>
+          <p class="footnote"><i>All market trailing 12-month and year-to-date figures are through September 2026.</i></p>
         </div>
       </div>
     </div>
