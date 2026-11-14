@@ -927,6 +927,33 @@ svg.leaflet-image-layer.leaflet-interactive path {
     .fl-revpar thead th,.fl-revpar tbody th,.fl-revpar tbody td{padding:10px 8px;font-size:14px}
     .fl-revpar thead th{font-size:10.5px;letter-spacing:.08em}
   }
+  /* Nationally Acclaimed Luxury Market */
+  .luxury-cols{align-items:stretch}
+  .waterside-card{display:block;width:100%;max-width:420px;height:auto;margin-top:36px}
+  .luxury-photo{min-height:520px}
+  .luxury-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 62%;display:block;position:absolute;inset:0}
+  .accolades{margin-top:72px}
+  .accolade-rule{display:flex;align-items:center;gap:22px}
+  .accolade-rule::before,.accolade-rule::after{content:"";flex:1;height:3px;
+       background:radial-gradient(circle,rgba(83,86,90,.38) 1px,transparent 1.4px) 0 50%/5px 3px repeat-x}
+  .accolade-mark{font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:120px;line-height:.78;height:58px;color:var(--accent);
+       display:block;letter-spacing:-.04em}
+  .accolade-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:34px 28px;padding:30px 0 34px}
+  .accolade{margin:0;flex:0 1 calc((100% - 56px) / 3);text-align:center;display:flex;flex-direction:column;align-items:center}
+  .accolade-grid .accolade:nth-child(n+4){flex-basis:calc((100% - 28px) / 2.2)}
+  .accolade-title{font-family:"Roboto Slab",Georgia,serif;font-weight:800;font-size:clamp(22px,2.2vw,30px);line-height:1.12;
+       color:var(--accent);margin:0;max-width:20ch;text-wrap:balance}
+  .accolade-grid .accolade:nth-child(n+4) .accolade-title{max-width:26ch}
+  .accolade-src{font-family:var(--font-body);font-weight:300;font-size:13px;color:var(--text);margin-top:8px;padding-top:6px;
+       border-top:1px solid rgba(83,86,90,.35)}
+  @media(max-width:760px){
+    .luxury-photo{min-height:340px}
+    .accolade,.accolade-grid .accolade:nth-child(n+4){flex-basis:100%}
+    .accolade-mark{font-size:88px;height:44px}
+  }
+  /* Alligator Alley map under the location split */
+  .location-map{max-width:1280px;margin:0 auto;padding:0 0 72px}
+  .location-map img{display:block;width:100%;height:auto;border-radius:2px;box-shadow:0 18px 50px rgba(32,52,56,.14)}
   .footnote{font-size:15.5px;line-height:1.8;color:var(--text);font-style:italic;margin-top:20px}
   .stat-callout-row{display:grid;grid-template-columns:1fr;gap:16px;margin:36px 0 0}
   .stat-callout{background:var(--white);border-left:4px solid var(--accent);padding:28px 30px;
@@ -1231,7 +1258,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <div class="vintage-grid">
         <div style="grid-area:copy">
           <h2 class="h2">Recent Vintage Extended-Stay Product with Superior Structural Quality</h2>
-          <p class="lead" style="margin-top:28px">Recently built in 2020, the Property is Naples’ only Hilton-branded extended-stay hotel, offering a contemporary all-suite product with limited near-term capital requirements, in-room kitchens, and complimentary surface parking. Amenities include an outdoor pool, fitness center, business center, and Home2 Market, a 24-hour convenience shop. Reinforced concrete masonry unit (CMU) construction distinguishes the Property from the wood-framed construction typically used for Home2 Suites hotels. The combination of institutional construction quality and an all-suite format with kitchens provides physical durability and additional exit optionality over the long term.</p>
+          <p class="lead" style="margin-top:28px">Built in 2020, the Property represents <strong>Naples’ only Hilton-branded extended-stay hotel</strong>, offering a modern, all-suite product with in-room kitchens and contemporary amenities. Notably, the Hotel features reinforced concrete masonry unit (CMU) construction, distinguishing it from the wood-frame construction commonly utilized for Home2 Suites properties. The combination of institutional construction quality, an all-suite format, and the recent vintage provides investors with a high-quality physical asset in the near term, while supporting sustained asset preservation and additional exit optionality in the long term. Coupled with the operating efficiencies inherent to the extended-stay model and the strength of Hilton’s global distribution platform, the Property offers an attractive mix of operational flexibility, cash flow potential, and long-term investment appeal.</p>
         </div>
         <div class="photo-frame" style="grid-area:c">
           <img src="images/h1-pool.jpg" alt="Outdoor pool deck with the hotel behind" />
@@ -1250,14 +1277,14 @@ svg.leaflet-image-layer.leaflet-interactive path {
     <div class="wrap">
       <div class="two-col" style="align-items:stretch">
         <div style="display:flex;flex-direction:column">
-          <h2 class="h2">Flourishing Leisure Destination</h2>
-          <p class="lead" style="max-width:68ch;margin-top:28px">Following a normalization period after the pandemic, Naples is rapidly evolving into a premier luxury destination, supported by pristine beaches, upscale dining and shopping, and renowned golf courses. Reflecting its increasingly upscale positioning, <strong>Naples’ trailing 12-month ADR reached $355 through September 2026, an increase of 51.3% since 2019.</strong> This pricing strength helped Naples achieve the <strong>highest trailing 12-month RevPAR in mainland Florida at $230.</strong></p>
-          <p class="lead" style="max-width:68ch;margin-top:20px">Continued investment includes The Avenue, a mixed-use development bringing 50 luxury residences and new retail, dining, and wellness offerings to downtown, and The Ritz-Carlton Residences, Naples, a collection of 128 luxury residences near Vanderbilt Beach. NCH’s $295 million heart and stroke center, currently under construction, will expand the region’s healthcare infrastructure and support additional medical-related lodging demand. Momentum remains strong, with <strong>trailing 12-month ADR increasing 9.7% year on year, driving 11.4% RevPAR growth</strong> and reinforcing Naples’ ability to command premium room rates.</p>
+          <h2 class="h2">Premier Hospitality Market with Exceptional Pricing Power</h2>
+          <p class="lead" style="max-width:68ch;margin-top:28px">Following a period of post-pandemic normalization, Naples continues to demonstrate exceptional lodging fundamentals, supported by its position as one of the nation’s premier luxury destinations. Naples’ trailing 12-month <strong>ADR reached $355</strong>, representing a <strong>51.3% increase</strong> over 2019 levels, while trailing 12-month <strong>RevPAR reached $230, the highest of any mainland Florida market</strong>. This sustained pricing strength underscores Naples’ ability to command premium rates and outperform competing destinations.</p>
+          <p class="lead" style="max-width:68ch;margin-top:20px">Approximately <strong>67% of Collier County’s land area is designated for conservation</strong>, limiting the land available for new hotel development. Ongoing mixed-use, healthcare, and luxury development is further enhancing the market’s appeal and diversifying its lodging demand base. Year-to-date through September 2026, <strong>ADR has increased 11.3%</strong>, while <strong>RevPAR has grown 14.0%</strong>, demonstrating continued momentum in an already high-performing lodging market.</p>
           <p class="footnote"><i>All market trailing 12-month and year-to-date figures are through September 2026.</i></p>
           <div class="stat-callout-row">
             <div class="stat-callout">
-              <div class="stat-callout-num">11.4%</div>
-              <div class="stat-callout-text">Naples Market RevPAR Growth Year on Year<span>T12 September 2026</span></div>
+              <div class="stat-callout-num">14.0%</div>
+              <div class="stat-callout-text">Naples Market RevPAR Growth Year to Date<span>YTD September 2026</span></div>
             </div>
           </div>
         </div>
@@ -1305,24 +1332,54 @@ svg.leaflet-image-layer.leaflet-interactive path {
             <colgroup><col style="width:40%"><col style="width:30%"><col style="width:30%"></colgroup>
             <thead><tr><th scope="col">Market</th><th scope="col">T12 Sept. 2026 RevPAR</th><th scope="col">RevPAR Growth Since 2019</th></tr></thead>
             <tbody>
-                <tr class="market-row"><th scope="row">Sarasota</th><td>$146</td><td>62.5%</td></tr>
-                <tr class="market-row"><th scope="row">Palm Beach</th><td>$207</td><td>59.7%</td></tr>
                 <tr class="market-row naples"><th scope="row">Naples</th><td>$230</td><td>50.5%</td></tr>
-                <tr class="market-row"><th scope="row">Tampa Bay</th><td>$121</td><td>30.1%</td></tr>
+                <tr class="market-row"><th scope="row">Palm Beach</th><td>$207</td><td>59.7%</td></tr>
                 <tr class="market-row"><th scope="row">Miami</th><td>$179</td><td>29.8%</td></tr>
-                <tr class="market-row"><th scope="row">Florida Central South</th><td>$87</td><td>29.6%</td></tr>
-                <tr class="market-row"><th scope="row">Florida Central North</th><td>$71</td><td>21.2%</td></tr>
-                <tr class="market-row"><th scope="row">Ft. Lauderdale</th><td>$135</td><td>20.7%</td></tr>
                 <tr class="market-row"><th scope="row">Orlando</th><td>$150</td><td>18.3%</td></tr>
+                <tr class="market-row"><th scope="row">Sarasota</th><td>$146</td><td>62.5%</td></tr>
+                <tr class="market-row"><th scope="row">Ft. Lauderdale</th><td>$135</td><td>20.7%</td></tr>
+                <tr class="market-row"><th scope="row">Tampa Bay</th><td>$121</td><td>30.1%</td></tr>
+                <tr class="market-row"><th scope="row">Ft. Myers</th><td>$106</td><td>5.4%</td></tr>
                 <tr class="market-row"><th scope="row">Melbourne</th><td>$97</td><td>16.5%</td></tr>
                 <tr class="market-row"><th scope="row">Jacksonville</th><td>$93</td><td>15.1%</td></tr>
-                <tr class="market-row"><th scope="row">Daytona Beach</th><td>$81</td><td>10.7%</td></tr>
                 <tr class="market-row"><th scope="row">Florida Panhandle</th><td>$91</td><td>9.2%</td></tr>
-                <tr class="market-row"><th scope="row">Ft. Myers</th><td>$106</td><td>5.4%</td></tr>
+                <tr class="market-row"><th scope="row">Florida Central South</th><td>$87</td><td>29.6%</td></tr>
+                <tr class="market-row"><th scope="row">Daytona Beach</th><td>$81</td><td>10.7%</td></tr>
+                <tr class="market-row"><th scope="row">Florida Central North</th><td>$71</td><td>21.2%</td></tr>
             </tbody>
           </table>
           <p class="fl-revpar-source">Source: CoStar</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHT: NATIONALLY ACCLAIMED LUXURY MARKET -->
+  <section class="section highlight-section bg-white" id="luxury">
+    <div class="wrap">
+      <div class="two-col luxury-cols">
+        <div class="luxury-copy">
+          <h2 class="h2">Nationally Acclaimed Luxury Market</h2>
+          <p class="lead" style="margin-top:28px">Naples represents one of the most affluent and nationally recognized luxury markets in the United States, earning <strong>U.S. News &amp; World Report’s #1 rankings for both Best Place to Live and Best Place to Retire</strong>. The City of Naples’ <strong>median household income of $153,182 is more than double the statewide median</strong>, retiree households average $93,499 in annual retirement income, and Naples-Marco Island now ranks as the <strong>third-most expensive luxury housing market in the country</strong>. This concentration of wealth supports a world-class retail landscape anchored by <strong>Waterside Shops</strong>, where <strong>Saks Fifth Avenue is joined by Hermès, Louis Vuitton, Gucci, Dior, and Van Cleef &amp; Arpels</strong>, complemented by the boutiques, galleries, and fine dining of Fifth Avenue South and Third Street South.</p>
+          <p class="lead" style="margin-top:20px">Capital continues to flow into the market, highlighted by <strong>The Ritz-Carlton Residences, Naples</strong>, which is introducing <strong>128 luxury residences near Vanderbilt Beach</strong>, and <strong>The Avenue</strong>, which secured <strong>$202 million in construction financing</strong> for 50 luxury residences above 75,000 square feet of retail and dining on Fifth Avenue South. This sustained investment supports durable, high-rated lodging demand across the market.</p>
+          <img class="waterside-card" src="images/waterside-shops-logos.png" alt="Waterside Shops tenants: Saks Fifth Avenue, Hermès, Louis Vuitton, Gucci, Dior, and Van Cleef &amp; Arpels" />
+        </div>
+        <div class="photo-frame luxury-photo">
+          <img src="images/luxury-naples-bayfront.jpg" alt="Naples Bayfront at sunset with waterfront shops and residential towers reflected in the bay" />
+          <div class="photo-label">Naples Bayfront</div>
+        </div>
+      </div>
+
+      <div class="accolades" aria-label="National rankings">
+        <div class="accolade-rule"><span class="accolade-mark">&rdquo;</span></div>
+        <div class="accolade-grid">
+          <figure class="accolade"><p class="accolade-title">#1 Best Place to Live in the U.S.</p><figcaption class="accolade-src">U.S. News &amp; World Report, 2024–2025</figcaption></figure>
+          <figure class="accolade"><p class="accolade-title">#1 Best Place to Retire in the U.S.</p><figcaption class="accolade-src">U.S. News &amp; World Report, 2025</figcaption></figure>
+          <figure class="accolade"><p class="accolade-title">Florida’s Richest Retirement Town</p><figcaption class="accolade-src">GOBankingRates, 2026</figcaption></figure>
+          <figure class="accolade"><p class="accolade-title">One of the 50 Best Places to Travel in 2026</p><figcaption class="accolade-src">Travel + Leisure, 2026</figcaption></figure>
+          <figure class="accolade"><p class="accolade-title">#3 Most Expensive Luxury Housing Market in the U.S.</p><figcaption class="accolade-src">Realtor.com, 2026</figcaption></figure>
+        </div>
+        <div class="accolade-rule"><span class="accolade-mark">&ldquo;</span></div>
       </div>
     </div>
   </section>
@@ -1342,7 +1399,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
             <li data-index="1"><span class="dot"></span> Naples Airport (~15 minutes)</li>
             <li data-index="2"><span class="dot"></span> The Gulf shoreline (~18 minutes)</li>
             <li data-index="3"><span class="dot"></span> NCH Baker Hospital (~20 minutes)</li>
-            <li data-index="4"><span class="dot"></span> Arthrex Inc. Headquarters and Medical Education Center (~16 minutes)</li>
+            <li data-index="4"><span class="dot"></span> Arthrex Inc. Headquarters and Medical Education Center (~13 minutes)</li>
             <li data-index="5"><span class="dot"></span> Paradise Coast Sports Complex (~15 minutes)</li>
           </ul>
         </div>
@@ -1397,7 +1454,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
               <div class="loc-logo"><img src="images/logos/arthrex-white.svg" data-color-src="images/logos/arthrex.svg" alt="Arthrex"></div>
               <div class="loc-card-meta">
                 <div class="loc-card-title">Arthrex Inc. Headquarters and Medical Education Center</div>
-                <div class="loc-card-desc">~16 minutes</div>
+                <div class="loc-card-desc">~13 minutes</div>
               </div>
             </div>
             <p class="loc-blurb">Arthrex, a global leader in orthopedic medical devices, is headquartered in Naples. Its Medical Education Center hosts surgeons and medical professionals for hands-on training, adding steady corporate visitation to the market.</p>
@@ -1415,6 +1472,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
           </div>
         </div>
       </div>
+      <figure class="location-map">
+        <img src="images/alligator-alley-map.png" alt="Map of Florida’s I-75 corridor: Alligator Alley runs approximately 80 miles across the Everglades between Naples and Fort Lauderdale, with essentially zero lodging accommodations along the crossing" />
+      </figure>
     </div>
   </section>
 
@@ -1454,11 +1514,11 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <div class="two-col" style="align-items:center">
         <div>
           <h2 class="h2">Sustained Competitive Set Outperformance</h2>
-          <p class="lead" style="max-width:68ch;margin-top:28px">The Hotel has established a leading position among its competitive set, achieving a trailing <strong>12-month RevPAR penetration index of 144.3%</strong> as of August 2026. This outperformance reflects both a significant occupancy premium and superior ADR, supported by the Hotel’s recent vintage, Hilton affiliation, and convenient I-75 location.</p>
+          <p class="lead" style="max-width:68ch;margin-top:28px">The Hotel has established a leading position among its competitive set, achieving a trailing <strong>12-month RevPAR penetration index of 142.6%</strong> as of September 2026. This outperformance reflects both a significant occupancy premium and superior ADR, supported by the Hotel’s recent vintage, Hilton affiliation, and convenient I-75 location.</p>
           <div class="stat-callout-row">
             <div class="stat-callout">
-              <div class="stat-callout-num">144.3%</div>
-              <div class="stat-callout-text">RevPAR Penetration<span>T12 August 2026</span></div>
+              <div class="stat-callout-num">142.6%</div>
+              <div class="stat-callout-text">RevPAR Penetration<span>T12 September 2026</span></div>
             </div>
           </div>
         </div>
@@ -1488,9 +1548,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <h2 class="h2">Dominant Brand &amp; Distribution System</h2>
         <img class="brand-logo" src="images/logo-home2-white.svg" alt="Home2 Suites by Hilton" />
       </div>
-      <p class="lead" style="color:rgba(255,255,255,.82);max-width:none;margin-top:24px">The Property benefits from its affiliation with Hilton, the world’s most recognizable and top-performing hospitality brand. Hilton provides centralized marketing, booking, and rewards systems, giving the Hotel access to over 260 million Hilton Honors members. Home2 Suites is a top-tier brand and arguably one of the most valuable franchise brands in the extended-stay space in the U.S. The brand currently has over 900 properties worldwide, making it a strong member of Hilton’s portfolio.</p>
+      <p class="lead" style="color:rgba(255,255,255,.82);max-width:none;margin-top:24px">The Property benefits from its affiliation with Hilton, the world’s most recognizable and top-performing hospitality brand. Hilton provides centralized marketing, booking, and rewards systems, giving the Hotel access to over <strong>270 million Hilton Honors members</strong>. Home2 Suites is a top-tier brand and arguably one of the most valuable franchise brands in the extended-stay space in the U.S. The brand currently has over 900 properties worldwide, making it a strong member of Hilton’s portfolio.</p>
       <div class="brand-stats">
-        <div class="brand-stat"><div class="v">260M+</div><div class="l">Hilton Honors Members</div></div>
+        <div class="brand-stat"><div class="v">270M+</div><div class="l">Hilton Honors Members</div></div>
         <div class="brand-stat"><div class="v">900+</div><div class="l">Home2 Suites Properties Worldwide</div></div>
       </div>
       <div class="brand-logo-grid" aria-label="Hilton portfolio brands">
@@ -1874,7 +1934,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
     (function () {
       var SEL = ".h2, .lead, .stats-card, .g-item, .photo-frame, .shot, "
               + ".side-photo, #overview-photo, .brand-stat, .brand-logo-grid, .location-cards, "
-              + ".callout-list, .stat-callout, .map-shell, .cta-buttons, .footer-grid, .quote-stack, .fl-revpar-card";
+              + ".callout-list, .stat-callout, .map-shell, .cta-buttons, .footer-grid, .quote-stack, .fl-revpar-card, .waterside-card, .accolades, .location-map";
       var els = Array.prototype.slice.call(document.querySelectorAll(SEL)).filter(function (el) {
         return !el.closest("#top") && !el.closest(".nav");
       });
