@@ -952,19 +952,16 @@ svg.leaflet-image-layer.leaflet-interactive path {
   @media(max-width:760px){.aa-map{grid-template-columns:1fr}.aa-map-left{border-right:0;border-bottom:1px solid #e2e7e1}}
   /* Premier Hospitality Market: copy + callout + photo | comparison table */
   .highlight-section h2.market-title{max-width:none}
-  .market-grid{display:grid;grid-template-columns:1.65fr 1fr;gap:clamp(32px,4vw,56px);margin-top:36px;align-items:stretch}
+  .market-copy{margin-top:28px}
+  .market-copy .footnote{margin-top:16px}
+  .market-grid{display:grid;grid-template-columns:1.65fr 1fr;gap:clamp(32px,4vw,56px);margin-top:40px;align-items:stretch}
+  .market-main .stat-callout-row{margin:0}
   .market-main{display:flex;flex-direction:column}
-  .market-callout{display:flex;align-items:center;gap:30px;margin-top:30px;padding:6px 0 6px 30px;border-left:6px solid var(--accent)}
-  .market-callout-num{font-family:"Roboto Slab",Georgia,serif;font-weight:800;font-size:clamp(46px,5vw,66px);line-height:1;color:var(--text)}
-  .market-callout-text{font-family:var(--font-cormorant);font-style:italic;font-weight:500;font-size:clamp(22px,2.2vw,30px);line-height:1.2;color:var(--text)}
-  .market-callout-text span{display:block;font-family:var(--font-body);font-style:normal;font-weight:500;font-size:14px;letter-spacing:.04em;margin-top:6px}
-  .market-photo{flex:1;min-height:360px;margin-top:30px}
+  .market-photo{flex:1;min-height:360px;margin-top:24px}
   .market-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%;display:block}
   .market-side{display:flex;flex-direction:column}
   .market-side .fl-revpar-card{flex:1}
-  .market-side .footnote{font-size:13px;margin-top:12px;padding-left:4px}
   @media(max-width:900px){.market-grid{grid-template-columns:1fr}.market-photo{min-height:300px}}
-  @media(max-width:760px){.market-callout{gap:18px;padding-left:18px}}
   .footnote{font-size:15.5px;line-height:1.8;color:var(--text);font-style:italic;margin-top:20px}
   .stat-callout-row{display:grid;grid-template-columns:1fr;gap:16px;margin:36px 0 0}
   .stat-callout{background:var(--white);border-left:4px solid var(--accent);padding:28px 30px;
@@ -1287,13 +1284,18 @@ svg.leaflet-image-layer.leaflet-interactive path {
   <section class="section highlight-section bg-sand" id="market">
     <div class="wrap">
       <h2 class="h2 market-title">Premier Hospitality Market with Exceptional Pricing Power</h2>
+      <div class="market-copy">
+        <p class="lead">Following a period of post-pandemic normalization, Naples continues to demonstrate exceptional lodging fundamentals, supported by its position as one of the nation’s premier luxury destinations. Naples’ trailing 12-month <strong>ADR reached $355</strong>, representing a <strong>51.3% increase</strong> over 2019 levels, while trailing 12-month <strong>RevPAR reached $230, the highest of any mainland Florida market</strong>. This sustained pricing strength underscores Naples’ ability to command premium rates and outperform competing destinations.</p>
+        <p class="lead" style="margin-top:20px">Approximately <strong>67% of Collier County’s land area is designated for conservation</strong>, limiting the land available for new hotel development. Ongoing mixed-use, healthcare, and luxury development is further enhancing the market’s appeal and diversifying its lodging demand base. Year-to-date through September 2026, <strong>ADR has increased 11.3%</strong>, while <strong>RevPAR has grown 14.0%</strong>, demonstrating continued momentum in an already high-performing lodging market.</p>
+        <p class="footnote"><i>All market trailing 12-month and year-to-date figures are through September 2026.</i></p>
+      </div>
       <div class="market-grid">
         <div class="market-main">
-          <p class="lead">Following a period of post-pandemic normalization, Naples continues to demonstrate exceptional lodging fundamentals, supported by its position as one of the nation’s premier luxury destinations. Naples’ trailing 12-month <strong>ADR reached $355</strong>, representing a <strong>51.3% increase</strong> over 2019 levels, while trailing 12-month <strong>RevPAR reached $230, the highest of any mainland Florida market</strong>. This sustained pricing strength underscores Naples’ ability to command premium rates and outperform competing destinations.</p>
-          <p class="lead" style="margin-top:20px">Approximately <strong>67% of Collier County’s land area is designated for conservation</strong>, limiting the land available for new hotel development. Ongoing mixed-use, healthcare, and luxury development is further enhancing the market’s appeal and diversifying its lodging demand base. Year-to-date through September 2026, <strong>ADR has increased 11.3%</strong>, while <strong>RevPAR has grown 14.0%</strong>, demonstrating continued momentum in an already high-performing lodging market.</p>
-          <div class="market-callout">
-            <div class="market-callout-num">14.0%</div>
-            <div class="market-callout-text">Naples Market RevPAR Growth Year Over Year<span>YTD September 2026</span></div>
+          <div class="stat-callout-row">
+            <div class="stat-callout">
+              <div class="stat-callout-num">14.0%</div>
+              <div class="stat-callout-text">Naples Market RevPAR Growth Year Over Year<span>YTD September 2026</span></div>
+            </div>
           </div>
           <div class="photo-frame market-photo">
             <img src="images/h2-pier.jpg" alt="Naples Pier at dusk" />
@@ -1325,7 +1327,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
             </table>
             <p class="fl-revpar-source">Source: CoStar</p>
           </div>
-          <p class="footnote"><i>All market trailing 12-month and year-to-date figures are through September 2026.</i></p>
         </div>
       </div>
     </div>
