@@ -880,27 +880,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
   /* Stat callouts */
   .lead strong{font-weight:600}
   /* Flourishing Leisure: accolade quotes + Florida RevPAR table */
-  .leisure-proof{margin-top:56px;align-items:stretch}
-  .quote-stack{display:flex;flex-direction:column;gap:18px;position:relative;z-index:0}
-  .quote-card{position:relative;margin:0;flex:1;display:grid;grid-template-columns:44px 1fr;gap:20px;align-items:stretch;
-       background:linear-gradient(180deg,#44737A 0%,var(--primary) 55%,#3A646B 100%);border-radius:4px;padding:20px 26px 18px 20px;
-       box-shadow:0 1px 3px rgba(20,34,37,.28),0 10px 22px rgba(20,34,37,.22);overflow:hidden;
-       transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) scale(var(--s,1));
-       transform-style:preserve-3d;will-change:transform;
-       transition:transform .6s cubic-bezier(.2,.7,.2,1),box-shadow .6s ease}
-  /* 3D tilt: the card leans toward the cursor (set by script); a soft glare follows the pointer */
-  .quote-card.is-tilting{transition:transform .12s ease-out,box-shadow .3s ease;--s:1.03;
-       box-shadow:0 2px 6px rgba(20,34,37,.25),0 22px 40px rgba(20,34,37,.3)}
-  .quote-card::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s ease;
-       background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.22),rgba(255,255,255,0) 55%)}
-  .quote-card.is-tilting::after{opacity:1}
-  .quote-rail{display:flex;flex-direction:column;align-items:center}
-  .quote-mark{font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:64px;line-height:.78;color:#fff;height:34px}
-  .quote-bar{flex:1;width:6px;min-height:24px;margin-top:10px;background:var(--accent);border-radius:1px}
-  .quote-card blockquote{margin:0;display:flex;flex-direction:column;justify-content:center}
-  .quote-title{font-family:"Roboto Slab",Rockwell,Georgia,serif;font-weight:800;text-transform:uppercase;letter-spacing:0;
-       font-size:clamp(18px,1.65vw,22px);line-height:1.15;color:#fff;margin:0;font-variant-numeric:lining-nums}
-  .quote-src{font-family:var(--font-body);font-weight:300;font-size:13.5px;color:rgba(255,255,255,.82);margin-top:10px}
+  .leisure-proof{margin-top:56px}
+  .leisure-proof .fl-revpar-card{max-width:880px;margin:0 auto}
   .fl-revpar-card{background:#fff;border-radius:2px;box-shadow:0 18px 50px rgba(32,52,56,.12);padding:22px 16px 12px}
   .fl-revpar-source{font-family:var(--font-body);font-size:12.5px;font-style:italic;color:var(--text);margin:6px 14px 6px;opacity:.9}
   .fl-revpar-title{font-family:var(--font-cormorant);font-weight:500;font-size:clamp(24px,2.1vw,30px);line-height:1.15;
@@ -919,10 +900,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .fl-revpar .naples > *{background:rgba(var(--accent-rgb),.2);font-weight:600;color:var(--primary-deep)}
   .fl-revpar .naples > :first-child{box-shadow:inset 4px 0 0 var(--accent)}
   .fl-revpar .naples:hover > *{background:rgba(var(--accent-rgb),.32);color:var(--primary-deep)}
-  @media(prefers-reduced-motion:reduce){.fl-revpar .market-row,.fl-revpar .market-row > *,.quote-card,.quote-card::after{transition:none}}
+  @media(prefers-reduced-motion:reduce){.fl-revpar .market-row,.fl-revpar .market-row > *{transition:none}}
   @media(max-width:760px){
-    .quote-card{grid-template-columns:34px 1fr;gap:14px;padding:16px 18px 14px 14px}
-    .quote-mark{font-size:50px;height:26px}
     .fl-revpar-card{padding:4px 6px;overflow-x:auto}
     .fl-revpar thead th,.fl-revpar tbody th,.fl-revpar tbody td{padding:10px 8px;font-size:14px}
     .fl-revpar thead th{font-size:10.5px;letter-spacing:.08em}
@@ -1303,29 +1282,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
           </div>
         </div>
       </div>
-      <div class="two-col leisure-proof">
-        <div class="quote-stack">
-          <figure class="quote-card">
-            <div class="quote-rail" aria-hidden="true"><span class="quote-mark">&rdquo;</span><span class="quote-bar"></span></div>
-            <blockquote><p class="quote-title">#1 Best Place to Live in the U.S.</p><figcaption class="quote-src">U.S. News &amp; World Report, 2024–2025</figcaption></blockquote>
-          </figure>
-          <figure class="quote-card">
-            <div class="quote-rail" aria-hidden="true"><span class="quote-mark">&rdquo;</span><span class="quote-bar"></span></div>
-            <blockquote><p class="quote-title">#1 Best Place to Retire in the U.S.</p><figcaption class="quote-src">U.S. News &amp; World Report, 2025</figcaption></blockquote>
-          </figure>
-          <figure class="quote-card">
-            <div class="quote-rail" aria-hidden="true"><span class="quote-mark">&rdquo;</span><span class="quote-bar"></span></div>
-            <blockquote><p class="quote-title">Florida’s Richest Retirement Town</p><figcaption class="quote-src">GOBankingRates, 2026</figcaption></blockquote>
-          </figure>
-          <figure class="quote-card">
-            <div class="quote-rail" aria-hidden="true"><span class="quote-mark">&rdquo;</span><span class="quote-bar"></span></div>
-            <blockquote><p class="quote-title">One of the 50 Best Places to Travel in 2026</p><figcaption class="quote-src">Travel + Leisure, 2026</figcaption></blockquote>
-          </figure>
-          <figure class="quote-card">
-            <div class="quote-rail" aria-hidden="true"><span class="quote-mark">&rdquo;</span><span class="quote-bar"></span></div>
-            <blockquote><p class="quote-title">#3 Most Expensive Luxury Housing Market in the U.S.</p><figcaption class="quote-src">Realtor.com, 2026</figcaption></blockquote>
-          </figure>
-        </div>
+      <div class="leisure-proof">
         <div class="fl-revpar-card">
           <h3 class="fl-revpar-title">Mainland Florida Hotel Market Comparison</h3>
           <table class="fl-revpar" aria-label="Florida market RevPAR comparison, trailing twelve months through September 2026, with Naples emphasized">
@@ -1934,7 +1891,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
     (function () {
       var SEL = ".h2, .lead, .stats-card, .g-item, .photo-frame, .shot, "
               + ".side-photo, #overview-photo, .brand-stat, .brand-logo-grid, .location-cards, "
-              + ".callout-list, .stat-callout, .map-shell, .cta-buttons, .footer-grid, .quote-stack, .fl-revpar-card, .waterside-card, .accolades, .location-map";
+              + ".callout-list, .stat-callout, .map-shell, .cta-buttons, .footer-grid, .fl-revpar-card, .waterside-card, .accolades, .location-map";
       var els = Array.prototype.slice.call(document.querySelectorAll(SEL)).filter(function (el) {
         return !el.closest("#top") && !el.closest(".nav");
       });
@@ -1956,32 +1913,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
         });
       }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
       els.forEach(function (el) { io.observe(el); });
-    })();
-  </script>
-  <script>
-    // Quote cards: 3D tilt toward the pointer (skipped for reduced motion and touch-only devices)
-    (function () {
-      var cards = document.querySelectorAll(".quote-card");
-      if (!cards.length) return;
-      if (window.matchMedia && (window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
-          !window.matchMedia("(hover: hover)").matches)) return;
-      var MAX = 9; // degrees
-      cards.forEach(function (card) {
-        card.addEventListener("pointermove", function (e) {
-          var r = card.getBoundingClientRect();
-          var px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
-          card.classList.add("is-tilting");
-          card.style.setProperty("--ry", ((px - .5) * 2 * MAX).toFixed(2) + "deg");
-          card.style.setProperty("--rx", ((.5 - py) * 2 * MAX).toFixed(2) + "deg");
-          card.style.setProperty("--gx", (px * 100).toFixed(1) + "%");
-          card.style.setProperty("--gy", (py * 100).toFixed(1) + "%");
-        });
-        card.addEventListener("pointerleave", function () {
-          card.classList.remove("is-tilting");
-          card.style.setProperty("--rx", "0deg");
-          card.style.setProperty("--ry", "0deg");
-        });
-      });
     })();
   </script>
 </body>
