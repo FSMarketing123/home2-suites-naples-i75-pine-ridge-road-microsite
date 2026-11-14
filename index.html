@@ -959,20 +959,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .market-callout-text span{display:block;font-family:var(--font-body);font-style:normal;font-weight:500;font-size:14px;letter-spacing:.04em;margin-top:6px}
   .market-photo{flex:1;min-height:360px;margin-top:30px}
   .market-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%;display:block}
-  .market-side .fl-revpar-title{font-family:var(--font-body);font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase;
-       color:var(--text);text-align:left;margin:0 0 12px;padding:0}
-  .market-side table.fl-revpar{border-spacing:0;background:#fff}
-  .market-side .fl-revpar thead th{background:var(--accent);color:#fff;border-bottom:0;font-size:12.5px;font-weight:700;letter-spacing:.06em;
-       text-align:center;padding:12px 10px}
-  .market-side .fl-revpar thead th:first-child{text-align:left;padding-left:16px}
-  .market-side .fl-revpar tbody th,.market-side .fl-revpar tbody td{border-bottom:1px solid rgba(var(--accent-rgb),.35);padding:13px 10px;font-size:15.5px}
-  .market-side .fl-revpar tbody th{padding-left:16px}
-  .market-side .fl-revpar tbody td{text-align:center}
-  .market-side .fl-revpar .naples > *{background:#fff;font-weight:700;color:var(--text);padding-top:20px;padding-bottom:20px}
-  .market-side .fl-revpar .naples > :first-child{box-shadow:none}
-  .market-side .fl-revpar .naples:hover > *{background:var(--sand-lt)}
-  .market-side .fl-revpar-source{margin:10px 0 0;padding-left:6px}
-  .market-side .footnote{font-size:13px;margin-top:10px;padding-left:6px}
+  .market-side{display:flex;flex-direction:column}
+  .market-side .fl-revpar-card{flex:1}
+  .market-side .footnote{font-size:13px;margin-top:12px;padding-left:4px}
   @media(max-width:900px){.market-grid{grid-template-columns:1fr}.market-photo{min-height:300px}}
   @media(max-width:760px){.market-callout{gap:18px;padding-left:18px}}
   .footnote{font-size:15.5px;line-height:1.8;color:var(--text);font-style:italic;margin-top:20px}
@@ -1311,28 +1300,30 @@ svg.leaflet-image-layer.leaflet-interactive path {
           </div>
         </div>
         <div class="market-side">
-          <h3 class="fl-revpar-title">Mainland Florida Hotel Market Comparison</h3>
-          <table class="fl-revpar" aria-label="Florida market RevPAR comparison, trailing twelve months through September 2026, with Naples emphasized">
-            <colgroup><col style="width:40%"><col style="width:30%"><col style="width:30%"></colgroup>
-            <thead><tr><th scope="col">Market</th><th scope="col">T12 Sept. 2026 RevPAR</th><th scope="col">RevPAR Growth Since 2019</th></tr></thead>
-            <tbody>
-                <tr class="market-row naples"><th scope="row">Naples</th><td>$230</td><td>50.5%</td></tr>
-                <tr class="market-row"><th scope="row">Palm Beach</th><td>$207</td><td>59.7%</td></tr>
-                <tr class="market-row"><th scope="row">Miami</th><td>$179</td><td>29.8%</td></tr>
-                <tr class="market-row"><th scope="row">Orlando</th><td>$150</td><td>18.3%</td></tr>
-                <tr class="market-row"><th scope="row">Sarasota</th><td>$146</td><td>62.5%</td></tr>
-                <tr class="market-row"><th scope="row">Ft. Lauderdale</th><td>$135</td><td>20.7%</td></tr>
-                <tr class="market-row"><th scope="row">Tampa Bay</th><td>$121</td><td>30.1%</td></tr>
-                <tr class="market-row"><th scope="row">Ft. Myers</th><td>$106</td><td>5.4%</td></tr>
-                <tr class="market-row"><th scope="row">Melbourne</th><td>$97</td><td>16.5%</td></tr>
-                <tr class="market-row"><th scope="row">Jacksonville</th><td>$93</td><td>15.1%</td></tr>
-                <tr class="market-row"><th scope="row">Florida Panhandle</th><td>$91</td><td>9.2%</td></tr>
-                <tr class="market-row"><th scope="row">Florida Central South</th><td>$87</td><td>29.6%</td></tr>
-                <tr class="market-row"><th scope="row">Daytona Beach</th><td>$81</td><td>10.7%</td></tr>
-                <tr class="market-row"><th scope="row">Florida Central North</th><td>$71</td><td>21.2%</td></tr>
-            </tbody>
-          </table>
-          <p class="fl-revpar-source">Source: CoStar</p>
+          <div class="fl-revpar-card">
+            <h3 class="fl-revpar-title">Mainland Florida Hotel Market Comparison</h3>
+<table class="fl-revpar" aria-label="Florida market RevPAR comparison, trailing twelve months through September 2026, with Naples emphasized">
+              <colgroup><col style="width:40%"><col style="width:30%"><col style="width:30%"></colgroup>
+              <thead><tr><th scope="col">Market</th><th scope="col">T12 Sept. 2026 RevPAR</th><th scope="col">RevPAR Growth Since 2019</th></tr></thead>
+              <tbody>
+                  <tr class="market-row naples"><th scope="row">Naples</th><td>$230</td><td>50.5%</td></tr>
+                  <tr class="market-row"><th scope="row">Palm Beach</th><td>$207</td><td>59.7%</td></tr>
+                  <tr class="market-row"><th scope="row">Miami</th><td>$179</td><td>29.8%</td></tr>
+                  <tr class="market-row"><th scope="row">Orlando</th><td>$150</td><td>18.3%</td></tr>
+                  <tr class="market-row"><th scope="row">Sarasota</th><td>$146</td><td>62.5%</td></tr>
+                  <tr class="market-row"><th scope="row">Ft. Lauderdale</th><td>$135</td><td>20.7%</td></tr>
+                  <tr class="market-row"><th scope="row">Tampa Bay</th><td>$121</td><td>30.1%</td></tr>
+                  <tr class="market-row"><th scope="row">Ft. Myers</th><td>$106</td><td>5.4%</td></tr>
+                  <tr class="market-row"><th scope="row">Melbourne</th><td>$97</td><td>16.5%</td></tr>
+                  <tr class="market-row"><th scope="row">Jacksonville</th><td>$93</td><td>15.1%</td></tr>
+                  <tr class="market-row"><th scope="row">Florida Panhandle</th><td>$91</td><td>9.2%</td></tr>
+                  <tr class="market-row"><th scope="row">Florida Central South</th><td>$87</td><td>29.6%</td></tr>
+                  <tr class="market-row"><th scope="row">Daytona Beach</th><td>$81</td><td>10.7%</td></tr>
+                  <tr class="market-row"><th scope="row">Florida Central North</th><td>$71</td><td>21.2%</td></tr>
+              </tbody>
+            </table>
+            <p class="fl-revpar-source">Source: CoStar</p>
+          </div>
           <p class="footnote"><i>All market trailing 12-month and year-to-date figures are through September 2026.</i></p>
         </div>
       </div>
