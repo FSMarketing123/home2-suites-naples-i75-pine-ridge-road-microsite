@@ -818,7 +818,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .two-col{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
 
   /* Overview property snapshot card */
-  .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .stats-card{display:flex;flex-direction:column}
+  .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;flex:1}
   .stat-cell{padding:22px 26px;background:var(--sand-lt);border:1px solid var(--divider);
        border-radius:2px;transition:transform .25s ease,box-shadow .25s ease;position:relative}
   .stat-cell::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);
@@ -1152,7 +1153,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
       </div>
       <div class="two-col" style="margin-top:48px">
         <div id="overview-copy-col">
-          <p class="lead">Hodges Ward Elliott (“HWE”) is pleased to present the opportunity to acquire the 99-room Home2 Suites by Hilton Naples I-75 Pine Ridge Road (“Property” or “Hotel”). Built in 2020, the Property is an all-suite, premium extended-stay hotel, boasting a strategic position off of I-75 on Pine Ridge Road, one of Naples’ primary east-west corridors. The Hotel also benefits from its proximity to Downtown Naples (~20 minutes), Naples Airport (~15 minutes), Southwest Florida International Airport (~30 minutes), the Gulf shoreline (~18 minutes), a variety of major medical and corporate employers, and several renowned golf courses.</p>
+          <p class="lead">Hodges Ward Elliott (“HWE”) is pleased to present the opportunity to acquire the <strong>Home2 Suites Naples I-75 Pine Ridge Road</strong> (the “Hotel” or “Property”), a 99-suite, extended-stay hotel located in one of the nation’s most affluent and desirable coastal markets. Built in 2020, the modern, premium-branded Hotel is strategically positioned along Interstate 75 in Naples, Florida, just off the Pine Ridge Road interchange. The Property benefits from exceptional connectivity to Naples’ renowned beaches, championship golf courses, luxury shopping and dining destinations, expanding commercial and healthcare corridors, and <strong>one of the most prestigious</strong> residential markets in the country.</p>
+          <p class="lead" style="margin-top:20px">Naples is distinguished by its <strong>extraordinary concentration of wealth, extremely high barriers to entry, and sustained private and public investment</strong>, standing among the nation’s premier residential and leisure destinations. Recently recognized by U.S. News as the <strong>#1 Best Place to Live in America</strong> (2024 - 2025), Naples continues to attract affluent residents, businesses, and visitors drawn to its exceptional quality of life and year-round coastal appeal. The market’s continued evolution is supported by significant investments in healthcare, corporate infrastructure, and ultra-luxury residential development, further diversifying demand beyond its established tourism base.</p>
+          <p class="lead" style="margin-top:20px">The Property’s contemporary, all-suite accommodations, efficient operating model, and strategic location provide a compelling opportunity to acquire a top asset in one of the country’s most sought-after real estate markets.</p>
           <div style="margin-top:36px;display:flex;gap:16px;flex-wrap:wrap">
             <!-- TODO: replace both CA hrefs with the RightSignature link + CA document for this deal -->
             <a href="#contact" class="btn btn-cta">Sign CA Online</a>
@@ -1657,6 +1660,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
       var col = document.getElementById("overview-copy-col");
       var img = document.getElementById("overview-photo");
       if (!card || !col || !img) return;
+      card.style.minHeight = "";
       if (window.innerWidth <= 760) { img.style.height = "260px"; return; }
       var priorHeight = img.style.height;
       img.style.height = "0px";
@@ -1665,6 +1669,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
       var cardHeight = card.offsetHeight;
       var target = cardHeight - colHeightWithoutImg;
       img.style.height = (target >= 220 ? target : 220) + "px";
+      // When the copy outgrows the snapshot card, stretch the card's rows so both columns end level
+      var colHeight = col.offsetHeight;
+      if (colHeight > card.offsetHeight) card.style.minHeight = colHeight + "px";
     }
     window.addEventListener("load", syncOverviewPhotoHeight);
     window.addEventListener("resize", syncOverviewPhotoHeight);
