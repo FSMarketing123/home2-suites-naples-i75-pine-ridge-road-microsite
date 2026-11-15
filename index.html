@@ -958,8 +958,10 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .market-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:40px;align-items:stretch}
   .market-side .fl-revpar tbody th,.market-side .fl-revpar tbody td{padding-top:10px;padding-bottom:10px;font-size:15.5px}
   .market-side .fl-revpar thead th{font-size:11px}
-  .market-main .stat-callout-row{margin:0}
-  .market-main .stat-callout{flex-wrap:nowrap}
+  .stat-callout-row.market-callouts{grid-template-columns:1fr 1fr;gap:64px;margin:40px 0 0;max-width:none}
+  .market-callouts .stat-callout{flex-wrap:nowrap}
+  .market-photo.first{margin-top:0}
+  @media(max-width:760px){.stat-callout-row.market-callouts{grid-template-columns:1fr;gap:16px}}
   .market-main{display:flex;flex-direction:column}
   .market-photo{flex:1;min-height:260px;margin-top:24px}
   .market-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%;display:block}
@@ -1293,15 +1295,19 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <p class="lead" style="margin-top:20px">Approximately <strong>67% of Collier County’s land area is designated for conservation</strong>, limiting the land available for new hotel development. Ongoing mixed-use, healthcare, and luxury development is further enhancing the market’s appeal and diversifying its lodging demand base. Year-to-date through September 2026, <strong>ADR has increased 11.3%</strong>, while <strong>RevPAR has grown 14.0%</strong>, demonstrating continued momentum in an already high-performing lodging market.</p>
         <p class="footnote"><i>All market trailing 12-month and year-to-date figures are through September 2026.</i></p>
       </div>
+      <div class="stat-callout-row market-callouts">
+        <div class="stat-callout">
+          <div class="stat-callout-num">14.0%</div>
+          <div class="stat-callout-text">Naples Market RevPAR Growth Year Over Year<span>YTD September 2026</span></div>
+        </div>
+        <div class="stat-callout">
+          <div class="stat-callout-num">11.3%</div>
+          <div class="stat-callout-text">YTD ADR Growth<span>Through September 2026</span></div>
+        </div>
+      </div>
       <div class="market-grid">
         <div class="market-main">
-          <div class="stat-callout-row">
-            <div class="stat-callout">
-              <div class="stat-callout-num">14.0%</div>
-              <div class="stat-callout-text">Naples Market RevPAR Growth Year Over Year<span>YTD September 2026</span></div>
-            </div>
-          </div>
-          <div class="photo-frame market-photo">
+          <div class="photo-frame market-photo first">
             <img src="images/h2-pier.jpg" alt="Naples Pier at dusk" />
             <div class="photo-label">Naples Pier</div>
           </div>
