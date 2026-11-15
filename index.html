@@ -908,9 +908,10 @@ svg.leaflet-image-layer.leaflet-interactive path {
   }
   /* Nationally Acclaimed Luxury Market */
   .highlight-section h2.luxury-title{max-width:none}
-  .luxury-cols{align-items:stretch;margin-top:32px}
+  .luxury-copy{margin-top:32px}
+  .luxury-cols{align-items:stretch;margin-top:40px}
   /* Waterside Shops tenant card, rebuilt from the vector logos */
-  .waterside-card{width:100%;margin-top:36px;background:#fff;border:6px solid var(--sand);border-radius:18px;
+  .waterside-card{width:100%;margin-top:0;background:#fff;border:6px solid var(--sand);border-radius:18px;
        padding:30px 34px 32px;display:flex;flex-direction:column;align-items:center;gap:20px}
   .waterside-card img{display:block;height:auto;max-width:100%}
   .ws-head{width:100%;padding-bottom:12px;border-bottom:3px solid var(--text)}
@@ -921,7 +922,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .ws-gucci{width:22%}
   .ws-dior{width:30%}
   .ws-vca{width:100%}
-  .luxury-photo{min-height:420px}
+  .luxury-photo{min-height:360px}
   .luxury-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 62%;display:block;position:absolute;inset:0}
   .accolades{margin-top:72px}
   .accolade-rule{display:flex;align-items:center;gap:22px}
@@ -1343,23 +1344,23 @@ svg.leaflet-image-layer.leaflet-interactive path {
   <section class="section highlight-section bg-white" id="luxury">
     <div class="wrap">
       <h2 class="h2 luxury-title">Nationally Acclaimed Luxury Market</h2>
-      <div class="two-col luxury-cols">
-        <div class="luxury-copy">
+      <div class="luxury-copy">
           <p class="lead">Naples represents one of the most affluent and nationally recognized luxury markets in the United States, earning <strong>U.S. News &amp; World Report’s #1 rankings for both Best Place to Live and Best Place to Retire</strong>. The City of Naples’ <strong>median household income of $153,182 is more than double the statewide median</strong>, retiree households average $93,499 in annual retirement income, and Naples-Marco Island now ranks as the <strong>third-most expensive luxury housing market in the country</strong>. This concentration of wealth supports a world-class retail landscape anchored by <strong>Waterside Shops</strong>, where <strong>Saks Fifth Avenue is joined by Hermès, Louis Vuitton, Gucci, Dior, and Van Cleef &amp; Arpels</strong>, complemented by the boutiques, galleries, and fine dining of Fifth Avenue South and Third Street South.</p>
           <p class="lead" style="margin-top:20px">Capital continues to flow into the market, highlighted by <strong>The Ritz-Carlton Residences, Naples</strong>, which is introducing <strong>128 luxury residences near Vanderbilt Beach</strong>, and <strong>The Avenue</strong>, which secured <strong>$202 million in construction financing</strong> for 50 luxury residences above 75,000 square feet of retail and dining on Fifth Avenue South. This sustained investment supports durable, high-rated lodging demand across the market.</p>
-          <div class="waterside-card" role="img" aria-label="Waterside Shops tenants: Saks Fifth Avenue, Hermès, Louis Vuitton, Gucci, Dior, and Van Cleef &amp; Arpels">
-            <img class="ws-head" src="images/waterside/waterside-shops.svg" alt="" />
-            <div class="ws-row ws-row-2">
-              <img class="ws-saks" src="images/waterside/saks-fifth-ave.svg" alt="" />
-              <img class="ws-hermes" src="images/waterside/hermes.svg" alt="" />
-            </div>
-            <div class="ws-row ws-row-3">
-              <img class="ws-lv" src="images/waterside/louis-vuitton.svg" alt="" />
-              <img class="ws-gucci" src="images/waterside/gucci.svg" alt="" />
-              <img class="ws-dior" src="images/waterside/dior.svg" alt="" />
-            </div>
-            <img class="ws-vca" src="images/waterside/van-cleef-arpels.svg" alt="" />
+      </div>
+      <div class="two-col luxury-cols">
+        <div class="waterside-card" role="img" aria-label="Waterside Shops tenants: Saks Fifth Avenue, Hermès, Louis Vuitton, Gucci, Dior, and Van Cleef &amp; Arpels">
+          <img class="ws-head" src="images/waterside/waterside-shops.svg" alt="" />
+          <div class="ws-row ws-row-2">
+            <img class="ws-saks" src="images/waterside/saks-fifth-ave.svg" alt="" />
+            <img class="ws-hermes" src="images/waterside/hermes.svg" alt="" />
           </div>
+          <div class="ws-row ws-row-3">
+            <img class="ws-lv" src="images/waterside/louis-vuitton.svg" alt="" />
+            <img class="ws-gucci" src="images/waterside/gucci.svg" alt="" />
+            <img class="ws-dior" src="images/waterside/dior.svg" alt="" />
+          </div>
+          <img class="ws-vca" src="images/waterside/van-cleef-arpels.svg" alt="" />
         </div>
         <div class="photo-frame luxury-photo">
           <img src="images/luxury-naples-bayfront.jpg" alt="Naples Bayfront at sunset with waterfront shops and residential towers reflected in the bay" />
