@@ -951,9 +951,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .waterside-card > img,.waterside-card .ws-row img{transform:translateZ(14px);
        filter:drop-shadow(var(--sx,0px) var(--sy,6px) 5px rgba(32,52,56,.20));
        transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .6s}
-  .waterside-card.tilting > img,.waterside-card.tilting .ws-row img{transform:translateZ(130px) scale(.9);
-       filter:drop-shadow(var(--sx,0px) var(--sy,34px) 16px rgba(32,52,56,.24));transition:transform .5s cubic-bezier(.2,.7,.2,1),filter .2s}
-  .waterside-card.tilting .ws-head{transform:translateZ(160px) scale(.88)}
+  .waterside-card.tilting > img,.waterside-card.tilting .ws-row img{transform:translateZ(230px) scale(.79);
+       filter:drop-shadow(var(--sx,0px) var(--sy,48px) 20px rgba(32,52,56,.26));transition:transform .5s cubic-bezier(.2,.7,.2,1),filter .2s}
+  .waterside-card.tilting .ws-head{transform:translateZ(270px) scale(.75)}
   .ws-glare{position:absolute;inset:0;border-radius:12px;pointer-events:none;opacity:0;transition:opacity .5s;
        background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.55),rgba(255,255,255,0) 55%);mix-blend-mode:soft-light}
   .waterside-card.tilting .ws-glare{opacity:1}
@@ -2091,8 +2091,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
             ws.style.setProperty("--gx", (x * 100).toFixed(1) + "%");
             ws.style.setProperty("--gy", (y * 100).toFixed(1) + "%");
             // Logo shadows fall away from the pointer, as if lit from it.
-            ws.style.setProperty("--sx", ((0.5 - x) * 44).toFixed(1) + "px");
-            ws.style.setProperty("--sy", (24 + (0.5 - y) * 34).toFixed(1) + "px");
+            ws.style.setProperty("--sx", ((0.5 - x) * 64).toFixed(1) + "px");
+            ws.style.setProperty("--sy", (36 + (0.5 - y) * 48).toFixed(1) + "px");
           });
         });
         ws.addEventListener("pointerleave", function () {
