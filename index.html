@@ -947,9 +947,15 @@ svg.leaflet-image-layer.leaflet-interactive path {
      scale() offsets perspective growth (1000/(1000-z)) so the rest layout is unchanged. */
   .ws-tilt{display:flex;perspective:1000px}
   .waterside-card{position:relative;flex:1;transform-style:preserve-3d;backface-visibility:hidden;
-       transform:translateZ(0);box-shadow:0 0 5px rgba(0,0,0,.1);will-change:transform;
+       transform:translateZ(0);background:transparent !important;will-change:transform;
        transition:transform .8s cubic-bezier(.2,.7,.2,1)}
   .waterside-card.tracking{transition:transform .08s linear}
+  /* The white box is its own layer so it can sink back (zoom out) on hover
+     while the logos stay put, making them stand off it. */
+  .waterside-card::before{content:"";position:absolute;inset:0;z-index:-1;background:#fff;border-radius:5px;
+       box-shadow:0 0 5px rgba(0,0,0,.1);transform:translateZ(0);pointer-events:none;
+       transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+  .waterside-card.tracking::before{transform:translateZ(-120px)}
   .waterside-card .ws-row{transform-style:preserve-3d}
   .waterside-card .ws-head{transform:translateZ(100px) scale(.9)}
   .waterside-card .ws-row-2 img{transform:translateZ(80px) scale(.92)}
