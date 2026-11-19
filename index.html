@@ -887,8 +887,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
        grid-template-areas:"copy copy" "c b";column-gap:64px;row-gap:40px}
   .highlight-section .vintage-grid h2{max-width:none}
   .vintage-grid .photo-frame{height:100%}
-  .vintage-grid .photo-frame img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
-  .vintage-grid .photo-frame:hover img{transform:scale(1.03)}
+  .vintage-grid .photo-frame img{width:100%;height:100%;object-fit:cover;display:block}
   @media(max-width:760px){
     .vintage-grid{grid-template-columns:1fr;grid-template-rows:auto;grid-template-areas:"copy" "b" "c";row-gap:20px}
     .vintage-grid .photo-frame{height:280px}
@@ -1299,11 +1298,11 @@ svg.leaflet-image-layer.leaflet-interactive path {
           <h2 class="h2">Recent Vintage Extended-Stay Product with Superior Structural Quality</h2>
           <p class="lead" style="margin-top:28px">Built in 2020, the Property represents <strong>Naples’ only Hilton-branded extended-stay hotel</strong>, offering a modern, all-suite product with in-room kitchens and contemporary amenities. Notably, the Hotel features reinforced concrete masonry unit (CMU) construction, distinguishing it from the wood-frame construction commonly utilized for Home2 Suites properties. The combination of institutional construction quality, an all-suite format, and the recent vintage provides investors with a high-quality physical asset in the near term, while supporting sustained asset preservation and additional exit optionality in the long term. Coupled with the operating efficiencies inherent to the extended-stay model and the strength of Hilton’s global distribution platform, the Property offers an attractive mix of operational flexibility, cash flow potential, and long-term investment appeal.</p>
         </div>
-        <div class="photo-frame" style="grid-area:c">
+        <div class="photo-frame zoomable" style="grid-area:c">
           <img src="images/h1-pool.jpg" alt="Outdoor pool deck with the hotel behind" />
           <div class="photo-label">Outdoor Pool</div>
         </div>
-        <div class="photo-frame" style="grid-area:b">
+        <div class="photo-frame zoomable" style="grid-area:b">
           <img src="images/h1-suite.jpg" alt="Suite with in-room kitchen" />
           <div class="photo-label">All-Suite Format</div>
         </div>
