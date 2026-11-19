@@ -776,7 +776,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   body{margin:0;background:var(--white);color:var(--text);
        font-family:var(--font-body);font-weight:300;line-height:1.6;
        -webkit-font-smoothing:antialiased}
-  img{max-width:100%;display:block}
+  img{max-width:100%;display:block;-webkit-user-drag:none;user-select:none;-webkit-touch-callout:none}
   a{color:inherit}
 
   .section{padding:clamp(64px,10vh,120px) var(--pad)}
@@ -2349,6 +2349,26 @@ svg.leaflet-image-layer.leaflet-interactive path {
         if (!box) return; var img = box.querySelector("img"), t = target(img);
         img.style.transition = "none"; place(img, t); box.querySelector(".lightbox-cap").style.top = (t.top + t.height + 18) + "px";
         img.offsetWidth; img.style.transition = "";
+      });
+    })();
+  </script>
+  <script>
+    // Deterrent against casual copying: no right-click menu, no image dragging,
+    // and the common view-source / save / dev-tools shortcuts are swallowed.
+    (function () {
+      document.addEventListener("contextmenu", function (e) { e.preventDefault(); });
+      document.addEventListener("dragstart", function (e) {
+        if (e.target && e.target.tagName === "IMG") e.preventDefault();
+      });
+      document.addEventListener("keydown", function (e) {
+        // e.code, not e.key: on a Mac, Option changes the character e.key reports.
+        var k = (e.code || "").replace(/^Key/, "").toLowerCase(), mod = e.ctrlKey || e.metaKey;
+        if (k === "f12" ||
+            (mod && (k === "u" || k === "s")) ||                       // view source, save page
+            (mod && e.shiftKey && (k === "i" || k === "j" || k === "c")) || // dev tools (Win/Linux)
+            (e.metaKey && e.altKey && (k === "i" || k === "j" || k === "c" || k === "u"))) { // dev tools / source (Mac)
+          e.preventDefault();
+        }
       });
     })();
   </script>
