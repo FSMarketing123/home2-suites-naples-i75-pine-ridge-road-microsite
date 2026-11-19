@@ -957,10 +957,17 @@ svg.leaflet-image-layer.leaflet-interactive path {
        transition:transform .7s cubic-bezier(.2,.7,.2,1)}
   .waterside-card.tracking::before{transform:translateZ(-40px)}
   .waterside-card .ws-row{transform-style:preserve-3d}
-  .waterside-card .ws-head{transform:translateZ(100px) scale(.9)}
-  .waterside-card .ws-row-2 img{transform:translateZ(80px) scale(.92)}
-  .waterside-card .ws-row-3 img{transform:translateZ(65px) scale(.935)}
-  .waterside-card .ws-vca{transform:translateZ(50px) scale(.95)}
+  /* Each logo: depth (--z), perspective offset (--s), and a hover grow (--g). */
+  .waterside-card > img,.waterside-card .ws-row img{
+       transform:translateZ(var(--z)) scale(calc(var(--s) * var(--g,1)));
+       transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+  .waterside-card .ws-head{--z:100px;--s:.9}
+  .waterside-card .ws-row-2 img{--z:80px;--s:.92}
+  .waterside-card .ws-row-3 img{--z:65px;--s:.935}
+  .waterside-card .ws-vca{--z:50px;--s:.95}
+  /* Logo under the pointer expands; the full-width header and Van Cleef grow less to stay inside the border. */
+  .waterside-card .ws-row img:hover{--g:1.14}
+  .waterside-card .ws-head:hover,.waterside-card .ws-vca:hover{--g:1.07}
   @media(hover:none),(prefers-reduced-motion:reduce){
     .waterside-card .ws-head,.waterside-card .ws-row img,.waterside-card .ws-vca{transform:none}}
   .ws-head{width:100%;padding-bottom:12px;border-bottom:3px solid var(--text)}
