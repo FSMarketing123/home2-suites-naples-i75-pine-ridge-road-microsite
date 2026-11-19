@@ -950,8 +950,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
        transform:translateZ(0);box-shadow:0 0 5px rgba(0,0,0,.1);will-change:transform;
        transition:transform .8s cubic-bezier(.2,.7,.2,1)}
   .waterside-card.tracking{transition:transform .08s linear}
-  .waterside-card::after{content:"";position:absolute;left:0;bottom:-50px;width:100%;height:10px;
-       border-radius:50%;box-shadow:0 30px 20px rgba(0,0,0,.3);pointer-events:none}
   .waterside-card .ws-row{transform-style:preserve-3d}
   .waterside-card .ws-head{transform:translateZ(100px) scale(.9)}
   .waterside-card .ws-row-2 img{transform:translateZ(80px) scale(.92)}
@@ -2078,18 +2076,13 @@ svg.leaflet-image-layer.leaflet-interactive path {
         sizeBand(); updateBand();
       }
 
-      // Waterside card: "hover around" 3D tilt. While the card is on screen it
-      // turns toward the pointer anywhere on the page (Y = dx/20, X = dy/10, max 14deg).
+      // Waterside card: 3D tilt while the pointer is over it (Y = dx/20,
+      // X = dy/10 from the card center, max 14deg); eases flat on leave.
       var ws = document.querySelector(".waterside-card");
       if (ws && window.matchMedia("(hover: hover)").matches && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        var wsRaf = null, wsOn = false, MAX = 14;
+        var wsRaf = null, MAX = 14;
         function clamp(v) { return Math.max(-MAX, Math.min(MAX, v)); }
-        new IntersectionObserver(function (en) {
-          wsOn = en[0].isIntersecting;
-          if (!wsOn) { ws.classList.remove("tracking"); ws.style.transform = ""; }
-        }).observe(ws);
-        document.addEventListener("mousemove", function (e) {
-          if (!wsOn) return;
+        ws.addEventListener("pointermove", function (e) {
           if (wsRaf) cancelAnimationFrame(wsRaf);
           wsRaf = requestAnimationFrame(function () {
             var r = ws.getBoundingClientRect();
@@ -2099,7 +2092,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
             ws.style.transform = "rotateY(" + ax.toFixed(2) + "deg) rotateX(" + ay.toFixed(2) + "deg)";
           });
         });
-        document.addEventListener("mouseleave", function () {
+        ws.addEventListener("pointerleave", function () {
+          if (wsRaf) cancelAnimationFrame(wsRaf);
           ws.classList.remove("tracking"); ws.style.transform = "";
         });
       }
