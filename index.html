@@ -936,6 +936,17 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .waterside-card{width:100%;margin-top:0;background:#fff;border:6px solid var(--sand);border-radius:18px;
        padding:30px 34px 32px;display:flex;flex-direction:column;align-items:center;gap:20px}
   .waterside-card img{display:block;height:auto;max-width:100%}
+  /* 3D hover tilt: the card follows the pointer, logos float above the face. */
+  .ws-tilt{display:flex;perspective:1100px}
+  .waterside-card{position:relative;flex:1;transform-style:preserve-3d;will-change:transform;
+       transition:transform .6s cubic-bezier(.2,.7,.2,1),box-shadow .6s;box-shadow:0 10px 30px rgba(32,52,56,.08)}
+  .waterside-card.tilting{transition:transform .12s linear,box-shadow .4s;box-shadow:0 34px 80px rgba(32,52,56,.26)}
+  .waterside-card > img,.waterside-card .ws-row{transform:translateZ(0);transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+  .waterside-card.tilting > img,.waterside-card.tilting .ws-row{transform:translateZ(34px)}
+  .waterside-card.tilting .ws-head{transform:translateZ(48px)}
+  .ws-glare{position:absolute;inset:0;border-radius:12px;pointer-events:none;opacity:0;transition:opacity .5s;
+       background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.55),rgba(255,255,255,0) 55%);mix-blend-mode:soft-light}
+  .waterside-card.tilting .ws-glare{opacity:1}
   .ws-head{width:100%;padding-bottom:12px;border-bottom:3px solid var(--text)}
   .ws-row{width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px}
   .ws-saks{width:58%}
@@ -1379,7 +1390,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
           <p class="lead" style="margin-top:20px">Capital continues to flow into the market, highlighted by <strong>The Ritz-Carlton Residences, Naples</strong>, which is introducing <strong>128 luxury residences near Vanderbilt Beach</strong>, and <strong>The Avenue</strong>, which secured <strong>$202 million in construction financing</strong> for 50 luxury residences above 75,000 square feet of retail and dining on Fifth Avenue South. This sustained investment supports durable, high-rated lodging demand across the market.</p>
       </div>
       <div class="two-col luxury-cols">
-        <div class="waterside-card" role="img" aria-label="Waterside Shops tenants: Saks Fifth Avenue, Hermès, Louis Vuitton, Gucci, Dior, and Van Cleef &amp; Arpels">
+        <div class="ws-tilt"><div class="waterside-card" role="img" aria-label="Waterside Shops tenants: Saks Fifth Avenue, Hermès, Louis Vuitton, Gucci, Dior, and Van Cleef &amp; Arpels">
           <img class="ws-head" src="images/waterside/waterside-shops.svg" alt="" />
           <div class="ws-row ws-row-2">
             <img class="ws-saks" src="images/waterside/saks-fifth-ave.svg" alt="" />
@@ -1391,7 +1402,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
             <img class="ws-dior" src="images/waterside/dior.svg" alt="" />
           </div>
           <img class="ws-vca" src="images/waterside/van-cleef-arpels.svg" alt="" />
-        </div>
+          <span class="ws-glare" aria-hidden="true"></span>
+        </div></div>
         <div class="photo-frame luxury-photo zoomable">
           <img src="images/luxury-naples-bayfront.jpg" alt="Naples Bayfront at sunset with waterfront shops and residential towers reflected in the bay" />
           <div class="photo-label">Naples Bayfront</div>
@@ -2054,6 +2066,28 @@ svg.leaflet-image-layer.leaflet-interactive path {
         sizeBand(); updateBand();
       }
 
+      // Waterside card: 3D tilt toward the pointer (max 9deg each axis).
+      var ws = document.querySelector(".waterside-card");
+      if (ws && window.matchMedia("(hover: hover)").matches && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        var wsRaf = null;
+        ws.addEventListener("pointermove", function (e) {
+          var r = ws.getBoundingClientRect();
+          var x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+          if (wsRaf) cancelAnimationFrame(wsRaf);
+          wsRaf = requestAnimationFrame(function () {
+            ws.classList.add("tilting");
+            ws.style.transform = "rotateX(" + ((0.5 - y) * 18).toFixed(2) + "deg) rotateY(" + ((x - 0.5) * 18).toFixed(2) + "deg) scale(1.03)";
+            ws.style.setProperty("--gx", (x * 100).toFixed(1) + "%");
+            ws.style.setProperty("--gy", (y * 100).toFixed(1) + "%");
+          });
+        });
+        ws.addEventListener("pointerleave", function () {
+          if (wsRaf) cancelAnimationFrame(wsRaf);
+          ws.classList.remove("tilting");
+          ws.style.transform = "";
+        });
+      }
+
       // Location bullets + cards. Hovering or clicking a bullet/card enlarges
       // that card and floats it to the center of the screen (FLIP animation from
       // its real on-screen position). Clicking a pinned-open card or the
@@ -2300,7 +2334,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
     (function () {
       var SEL = ".h2, .lead, .stats-card, .g-item, .photo-frame, .shot, "
               + ".side-photo, #overview-photo, .brand-stat, .brand-logo-grid, .location-cards, "
-              + ".callout-list, .stat-callout, .map-shell, .cta-buttons, .footer-grid, .fl-revpar-card, .waterside-card, .accolades, .location-map";
+              + ".callout-list, .stat-callout, .map-shell, .cta-buttons, .footer-grid, .fl-revpar-card, .ws-tilt, .accolades, .location-map";
       var els = Array.prototype.slice.call(document.querySelectorAll(SEL)).filter(function (el) {
         return !el.closest("#top") && !el.closest(".nav");
       });
