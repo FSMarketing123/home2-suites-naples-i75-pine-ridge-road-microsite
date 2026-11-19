@@ -981,7 +981,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
        font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--primary);margin-top:8px}
 
   /* Location */
-  .location-band{display:block;width:100%;height:clamp(340px,56vw,860px);object-fit:cover;object-position:50% 55%}
+  .location-band{position:relative;overflow:hidden;width:100%;height:clamp(340px,56vw,860px)}
+  .location-band img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%;display:block;will-change:transform}
   .location-split{display:grid;grid-template-columns:1fr 1.25fr;column-gap:clamp(40px,5vw,64px);align-items:start;
        max-width:1280px;margin:0 auto;padding:72px 0}
   .highlight-section h2.location-title{grid-column:1 / -1;max-width:none;margin-bottom:36px}
@@ -1391,7 +1392,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
   <!-- HIGHLIGHT: STRATEGIC POSITION / LOCATION -->
   <section class="highlight-section bg-sand" id="location" style="padding:0">
-    <img class="location-band" src="images/location-alligator-alley.jpg" alt="I-75 Alligator Alley crossing the Florida Everglades" />
+    <div class="location-band"><img id="location-band-img" src="images/location-alligator-alley.jpg" alt="I-75 Alligator Alley crossing the Florida Everglades" /></div>
 
     <div style="padding:0 var(--pad)">
       <div class="location-split">
@@ -2004,6 +2005,31 @@ svg.leaflet-image-layer.leaflet-interactive path {
           }
         }, { passive: true });
         updateParallax();
+      }
+
+      // Alligator Alley band: parallax at 24% of scroll speed. The image is
+      // oversized by the maximum travel so its edges never show.
+      var bandImg = document.getElementById("location-band-img");
+      if (bandImg && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        var band = bandImg.parentNode, bandTick = false, RATE = 0.24;
+        function sizeBand() {
+          var pad = Math.ceil(RATE * (window.innerHeight + band.offsetHeight) / 2) + 2;
+          bandImg.style.top = -pad + "px";
+          bandImg.style.height = "calc(100% + " + (pad * 2) + "px)";
+        }
+        function updateBand() {
+          var r = band.getBoundingClientRect();
+          if (r.bottom > 0 && r.top < window.innerHeight) {
+            var off = ((r.top + r.height / 2) - window.innerHeight / 2) * -RATE;
+            bandImg.style.transform = "translate3d(0," + off.toFixed(1) + "px,0)";
+          }
+          bandTick = false;
+        }
+        window.addEventListener("scroll", function () {
+          if (!bandTick) { window.requestAnimationFrame(updateBand); bandTick = true; }
+        }, { passive: true });
+        window.addEventListener("resize", function () { sizeBand(); updateBand(); });
+        sizeBand(); updateBand();
       }
 
       // Location bullets + cards. Hovering or clicking a bullet/card enlarges
