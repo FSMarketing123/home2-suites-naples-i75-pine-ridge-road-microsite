@@ -939,8 +939,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .luxury-copy{margin-top:32px}
   .luxury-cols{align-items:stretch;margin-top:40px}
   /* Waterside Shops tenant card, rebuilt from the vector logos */
-  .waterside-card{width:100%;margin-top:0;background:#fff;border-radius:5px;
-       padding:30px 34px 32px;display:flex;flex-direction:column;align-items:center;gap:20px}
+  .waterside-card{width:100%;margin-top:0;background:#fff;border-radius:18px;
+       padding:44px 52px 46px;display:flex;flex-direction:column;align-items:center;gap:20px}
   .waterside-card img{display:block;height:auto;max-width:100%}
   /* 3D "hover around" card: the card tilts toward the pointer while the logos
      sit on fixed layers above its face (translateZ), so they shift against it.
@@ -952,10 +952,10 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .waterside-card.tracking{transition:transform .08s linear}
   /* The white box is its own layer so it can sink back (zoom out) on hover
      while the logos stay put, making them stand off it. */
-  .waterside-card::before{content:"";position:absolute;inset:0;z-index:-1;background:#fff;border-radius:5px;
-       box-shadow:0 0 5px rgba(0,0,0,.1);transform:translateZ(0);pointer-events:none;
+  .waterside-card::before{content:"";position:absolute;inset:0;z-index:-1;background:#fff;border-radius:18px;
+       border:6px solid var(--sand);box-sizing:border-box;transform:translateZ(0);pointer-events:none;
        transition:transform .7s cubic-bezier(.2,.7,.2,1)}
-  .waterside-card.tracking::before{transform:translateZ(-120px)}
+  .waterside-card.tracking::before{transform:translateZ(-40px)}
   .waterside-card .ws-row{transform-style:preserve-3d}
   .waterside-card .ws-head{transform:translateZ(100px) scale(.9)}
   .waterside-card .ws-row-2 img{transform:translateZ(80px) scale(.92)}
@@ -2083,10 +2083,10 @@ svg.leaflet-image-layer.leaflet-interactive path {
       }
 
       // Waterside card: 3D tilt while the pointer is over it (Y = dx/20,
-      // X = dy/10 from the card center, max 14deg); eases flat on leave.
+      // X = dy/10 from the card center, max 9deg); eases flat on leave.
       var ws = document.querySelector(".waterside-card");
       if (ws && window.matchMedia("(hover: hover)").matches && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        var wsRaf = null, MAX = 14;
+        var wsRaf = null, MAX = 9;
         function clamp(v) { return Math.max(-MAX, Math.min(MAX, v)); }
         ws.addEventListener("pointermove", function (e) {
           if (wsRaf) cancelAnimationFrame(wsRaf);
