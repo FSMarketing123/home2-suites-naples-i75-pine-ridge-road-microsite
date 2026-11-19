@@ -852,6 +852,29 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .side-photo:hover img{transform:scale(1.03)}
   .photo-frame{position:relative;border-radius:2px;overflow:hidden;box-shadow:0 24px 70px rgba(32,52,56,.22)}
   .photo-frame img{box-shadow:none}
+  /* Zoomable photos: hover zoom + expand badge; click opens the lightbox. */
+  .zoomable{cursor:zoom-in;transition:box-shadow .5s}
+  .zoomable img{transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+  .zoomable:hover{box-shadow:0 30px 80px rgba(32,52,56,.32)}
+  .zoomable:hover img,.zoomable:focus-visible img{transform:scale(1.05)}
+  .zoomable:focus-visible{outline:3px solid #B2BB1F;outline-offset:3px}
+  .zoom-badge{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;z-index:3;
+    display:flex;align-items:center;justify-content:center;background:rgba(63,107,114,.88);color:#fff;
+    opacity:0;transform:scale(.8);transition:opacity .35s,transform .35s;pointer-events:none}
+  .zoomable:hover .zoom-badge,.zoomable:focus-visible .zoom-badge{opacity:1;transform:scale(1)}
+  .lightbox{position:fixed;inset:0;z-index:2000;background:rgba(20,34,37,0);backdrop-filter:blur(0);-webkit-backdrop-filter:blur(0);
+    transition:background .45s,backdrop-filter .45s,-webkit-backdrop-filter .45s;cursor:zoom-out}
+  .lightbox.open{background:rgba(20,34,37,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+  .lightbox img{position:fixed;object-fit:cover;border-radius:2px;box-shadow:0 40px 120px rgba(0,0,0,.5);
+    transition:left .5s cubic-bezier(.2,.8,.2,1),top .5s cubic-bezier(.2,.8,.2,1),width .5s cubic-bezier(.2,.8,.2,1),height .5s cubic-bezier(.2,.8,.2,1)}
+  .lightbox-cap{position:fixed;left:0;right:0;text-align:center;color:#fff;font-family:"Poppins",sans-serif;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;opacity:0;transition:opacity .35s .2s}
+  .lightbox-cap:before{content:"";display:block;width:32px;height:2px;background:#B2BB1F;margin:0 auto 10px}
+  .lightbox.open .lightbox-cap{opacity:1}
+  .lightbox-close{position:fixed;top:22px;right:26px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.5);
+    background:rgba(255,255,255,.08);color:#fff;font-size:26px;line-height:1;cursor:pointer;opacity:0;transition:opacity .3s,background .3s}
+  .lightbox.open .lightbox-close{opacity:1}
+  .lightbox-close:hover{background:#3F6B72}
   .photo-label{position:absolute;left:0;right:0;bottom:0;padding:14px 18px;
        background:linear-gradient(to top, rgba(0,0,0,.7), transparent);
        font-family:var(--font-body);font-size:11px;font-weight:600;letter-spacing:.14em;
@@ -1309,11 +1332,11 @@ svg.leaflet-image-layer.leaflet-interactive path {
       </div>
       <div class="market-grid">
         <div class="market-main">
-          <div class="photo-frame market-photo first">
+          <div class="photo-frame market-photo first zoomable">
             <img src="images/h2-pier.jpg" alt="Naples Pier at dusk" />
             <div class="photo-label">Naples Pier</div>
           </div>
-          <div class="photo-frame market-photo">
+          <div class="photo-frame market-photo zoomable">
             <img src="images/h2-grey-oaks.jpg?v=2" alt="Aerial view of Grey Oaks Country Club fairways and lakes" />
             <div class="photo-label">Grey Oaks Country Club</div>
           </div>
@@ -1370,7 +1393,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
           </div>
           <img class="ws-vca" src="images/waterside/van-cleef-arpels.svg" alt="" />
         </div>
-        <div class="photo-frame luxury-photo">
+        <div class="photo-frame luxury-photo zoomable">
           <img src="images/luxury-naples-bayfront.jpg" alt="Naples Bayfront at sunset with waterfront shops and residential towers reflected in the bay" />
           <div class="photo-label">Naples Bayfront</div>
         </div>
@@ -1732,7 +1755,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
           <h2 class="h2">Proximity to Prime Retail</h2>
           <p class="lead" style="max-width:68ch;margin-top:28px">The Hotel benefits from a vast surrounding retail base that complements its extended-stay offering. Nearby full-service and quick-service restaurants provide flexible dining options, while grocery and convenience stores allow guests to stock in-suite kitchens and manage food costs during longer stays. Adjacent self-storage provides added utility for guests relocating or between residences, further positioning the Hotel as a practical base for extended visits.</p>
         </div>
-        <div class="photo-frame">
+        <div class="photo-frame zoomable">
           <img src="images/h4-kitchen.jpg" alt="Suite with full kitchen and dining table" style="width:100%;height:400px;object-fit:cover" />
           <div class="photo-label">In-Suite Kitchen</div>
         </div>
@@ -1765,7 +1788,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
             </div>
           </div>
         </div>
-        <img class="shot" src="images/h5-exterior.jpg" alt="Hotel exterior on a sunny day" style="height:520px" />
+        <div class="shot photo-frame zoomable" style="height:520px"><img src="images/h5-exterior.jpg" alt="Hotel exterior on a sunny day" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
       </div>
     </div>
   </section>
@@ -1778,9 +1801,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
           <h2 class="h2">Clean Investment Opportunity</h2>
           <p class="lead" style="max-width:68ch;margin-top:28px">The non-union, fee-simple interest in the Home2 Suites is being offered free and clear of existing management and financing, affording new ownership maximum optionality in the future operation and capitalization of the Hotel.</p>
         </div>
-        <img class="shot" src="images/h6-lounge.jpg" alt="Covered outdoor lounge" style="height:460px" />
+        <div class="shot photo-frame zoomable" style="height:460px"><img src="images/h6-lounge.jpg" alt="Covered outdoor lounge" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
       </div>
-      <img class="shot" src="images/h6-pool-large.jpg" alt="Pool deck with loungers and umbrellas" style="height:580px;margin-top:64px" />
+      <div class="shot photo-frame zoomable" style="height:580px;margin-top:64px"><img src="images/h6-pool-large.jpg" alt="Pool deck with loungers and umbrellas" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
     </div>
   </section>
 
@@ -2197,6 +2220,81 @@ svg.leaflet-image-layer.leaflet-interactive path {
         map.flyToBounds(homeBounds);
       });
     });
+  </script>
+  <script>
+    // Lightbox: zoomable photos grow from their spot on the page to a centered view.
+    (function () {
+      var frames = document.querySelectorAll(".zoomable");
+      if (!frames.length) return;
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var icon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>';
+      var box = null, src = null, lastFocus = null;
+      function rectOf(el) { var r = el.getBoundingClientRect(); return { left: r.left, top: r.top, width: r.width, height: r.height }; }
+      function place(img, r) { img.style.left = r.left + "px"; img.style.top = r.top + "px"; img.style.width = r.width + "px"; img.style.height = r.height + "px"; }
+      function target(img) {
+        var nw = img.naturalWidth || 16, nh = img.naturalHeight || 10;
+        var capH = 54, maxW = window.innerWidth * 0.9, maxH = window.innerHeight * 0.86 - capH;
+        var k = Math.min(maxW / nw, maxH / nh), w = nw * k, h = nh * k;
+        return { left: (window.innerWidth - w) / 2, top: (window.innerHeight - h - capH) / 2, width: w, height: h };
+      }
+      function open(frame) {
+        if (box) return;
+        src = frame; lastFocus = document.activeElement;
+        var orig = frame.querySelector("img");
+        var label = frame.querySelector(".photo-label");
+        box = document.createElement("div");
+        box.className = "lightbox";
+        box.setAttribute("role", "dialog"); box.setAttribute("aria-modal", "true");
+        box.setAttribute("aria-label", orig.alt);
+        var img = new Image(); img.src = orig.currentSrc || orig.src; img.alt = orig.alt;
+        img.style.objectPosition = getComputedStyle(orig).objectPosition;
+        var cap = document.createElement("div"); cap.className = "lightbox-cap";
+        cap.textContent = label ? label.textContent : orig.alt;
+        var btn = document.createElement("button"); btn.className = "lightbox-close"; btn.type = "button";
+        btn.setAttribute("aria-label", "Close"); btn.innerHTML = "&times;";
+        box.appendChild(img); box.appendChild(cap); box.appendChild(btn);
+        place(img, rectOf(orig));
+        img.style.transition = "none";
+        document.body.appendChild(box);
+        frame.style.visibility = "hidden";
+        document.documentElement.style.overflow = "hidden";
+        function go() {
+          img.offsetWidth; img.style.transition = reduce ? "none" : "";
+          var t = target(img); place(img, t);
+          img.style.objectPosition = "50% 50%";
+          cap.style.top = (t.top + t.height + 18) + "px";
+          box.classList.add("open"); btn.focus();
+        }
+        if (img.complete) requestAnimationFrame(go); else img.onload = function () { requestAnimationFrame(go); };
+        box.addEventListener("click", close);
+      }
+      function close() {
+        if (!box) return;
+        var b = box, f = src, img = b.querySelector("img"), orig = f.querySelector("img");
+        box = null;
+        b.classList.remove("open");
+        img.style.objectPosition = getComputedStyle(orig).objectPosition;
+        place(img, rectOf(orig));
+        setTimeout(function () {
+          f.style.visibility = ""; b.remove();
+          document.documentElement.style.overflow = "";
+          if (lastFocus) lastFocus.focus({ preventScroll: true });
+        }, reduce ? 0 : 500);
+      }
+      Array.prototype.forEach.call(frames, function (f) {
+        f.setAttribute("tabindex", "0"); f.setAttribute("role", "button");
+        f.setAttribute("aria-label", "Enlarge photo: " + f.querySelector("img").alt);
+        f.insertAdjacentHTML("beforeend", '<span class="zoom-badge" aria-hidden="true">' + icon + "</span>");
+        f.addEventListener("click", function () { open(f); });
+        f.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(f); } });
+      });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+      window.addEventListener("resize", function () {
+        if (!box) return; var img = box.querySelector("img"), t = target(img);
+        img.style.transition = "none"; place(img, t); box.querySelector(".lightbox-cap").style.top = (t.top + t.height + 18) + "px";
+        img.offsetWidth; img.style.transition = "";
+      });
+    })();
   </script>
   <script>
     // Scroll-reveal: scale + fade content in as it enters the viewport.
